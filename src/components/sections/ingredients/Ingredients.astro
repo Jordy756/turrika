@@ -1,0 +1,89 @@
+---
+import IngredientCard from "@components/sections/ingredients/IngredientCard.astro";
+import { ingredients } from "@data";
+---
+
+<section id="ingredients" class="ingredients">
+  <article>
+    <span>Ingredientes</span>
+    <h2>Ingredientes</h2>
+    <p>La simplicidad de tres elementos que crean una experiencia sensorial única.</p>
+  </article>
+  <div>
+    {
+      ingredients.map((ingredient, index) => (
+        <IngredientCard
+          index={index + 1 + ""}
+          image={ingredient.image}
+          name={ingredient.name}
+          description={ingredient.description}
+          quantity={ingredient.quantity}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .ingredients {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--primary-900);
+  }
+
+  .ingredients > article {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 2rem;
+    height: 100dvh;
+    align-self: start;
+  }
+
+  .ingredients > article > span {
+    position: absolute;
+    top: 16px;
+    left: 100%;
+    transform: translateX(-50%);
+    color: var(--primary-50);
+    font-size: var(--text-hero-giant);
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  .ingredients > article > h2::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 5%;
+    height: 2px;
+    background-color: var(--primary-200);
+  }
+
+  .ingredients > article > h2 {
+    position: relative;
+    font-size: var(--text-display-small);
+    color: var(--primary-200);
+  }
+
+  .ingredients > article > p {
+    margin-left: 32px;
+    max-width: 50ch;
+    font-family: var(--manrope-font);
+    font-weight: 400;
+  }
+
+  .ingredients > div {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+  }
+</style>
