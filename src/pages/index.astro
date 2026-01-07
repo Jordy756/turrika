@@ -1,11 +1,41 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Turrika - Home">
+  <dialog id="test" closedby="any">
+    <h6>Pregunta</h6>
+    <p>Respuesta</p>
+    <form method="dialog">
+      <button type="submit">OK</button>
+    </form>
+  </dialog>
+  <button commandfor="test" command="show-modal">Open Dialog</button>
 </Layout>
+
+<style>
+  dialog[open] {
+    scale: 1;
+  }
+
+  dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    border: none;
+    scale: 0;
+    transition:
+      scale 0.3s ease-in-out,
+      display 0.5s ease-in allow-discrete;
+  }
+
+  @starting-style {
+    dialog[open] {
+      scale: 0;
+    }
+  }
+</style>

@@ -1,22 +1,271 @@
+---
+import { Font } from "astro:assets";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <Font cssVariable="--font-unbounded" />
+    <Font cssVariable="--font-manrope" />
+
+    <!-- <meta name="description" content={summary} />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={summary} />
+        <meta property="og:image" content={ogImage} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content={hostname} />
+        <meta property="twitter:url" content={url} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={summary} />
+        <meta name="twitter:image" content={ogImage} /> -->
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  :root {
+    --unbounded-font: var(--font-unbounded), "Open Sans", sans-serif, system-ui;
+    --manrope-font: var(--font-manrope), "Inter", sans-serif, system-ui;
+
+    --text-hero-giant: clamp(9.375rem, 12vw + 2rem, 18.75rem);
+    --text-hero-extra-large: clamp(3.75rem, 10vw + 24px, 15.625rem);
+    --text-hero-large: clamp(3.125rem, 7vw + 1rem, 9.375rem);
+    --text-hero-medium: clamp(2.5rem, 6vw + 1rem, 8rem);
+    --text-hero-small: clamp(1.875rem, 5vw + 1rem, 7.5rem);
+
+    --text-display-large: clamp(2rem, 4vw + 1rem, 4rem);
+    --text-display-medium: clamp(1.5rem, 3vw + 1rem, 3rem);
+    --text-display-small: clamp(1.25rem, 2.5vw + 1rem, 2.625rem);
+    --text-display-extra-small: clamp(1.125rem, 2vw + 1rem, 2.5rem);
+
+    --text-heading-large: clamp(1.25rem, 2vw + 0.5rem, 2rem);
+    --text-heading-medium: clamp(1rem, 1.5vw + 0.5rem, 1.75rem);
+    --text-heading-small: clamp(0.875rem, 1.2vw + 0.5rem, 1.5rem);
+
+    --text-body-large: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+    --text-body-base: clamp(0.75rem, 0.8vw + 0.3rem, 1rem);
+    --text-body-small: clamp(0.625rem, 0.6vw + 0.2rem, 0.75rem);
+    --text-body-extra-small: clamp(0.5rem, 0.5vw + 0.1rem, 0.625rem);
+
+    --neutral-50: #fbfbfc;
+    --neutral-100: #f3f3f5;
+    --neutral-200: #e8e8ea;
+    --neutral-300: #dcdce0;
+    --neutral-400: #d1d1d6;
+    --neutral-500: #b2b2ba;
+    --neutral-600: #a0a0b0;
+    --neutral-700: #565660;
+    --neutral-800: #2b2b30;
+    --neutral-900: #0f0e0e;
+
+    --primary-50: #fdead7;
+    --primary-100: #fad5b0;
+    --primary-200: #f8c088;
+    --primary-300: #f5aa60;
+    --primary-400: #f39539;
+    --primary-500: #f08011;
+    --primary-600: #c96b0d;
+    --primary-700: #a1550a;
+    --primary-800: #794008;
+    --primary-900: #512b05;
+
+    --secondary-500: #cec9c9;
+
+    --error-50: #ffdddb;
+    --error-100: #ffbbb7;
+    --error-200: #ff9a93;
+    --error-300: #ff786e;
+    --error-400: #ff564a;
+    --error-500: #ff3426;
+    --error-600: #f41000;
+    --error-700: #c30d00;
+    --error-800: #930900;
+    --error-900: #620600;
+
+    --success-50: #eefcd2;
+    --success-100: #ddf8a6;
+    --success-200: #ccf579;
+    --success-300: #bbf14d;
+    --success-400: #aaee20;
+    --success-500: #8fce10;
+    --success-600: #77ac0d;
+    --success-700: #5f890b;
+    --success-800: #486708;
+    --success-900: #304505;
+
+    --warning-50: #fff9d5;
+    --warning-100: #fff4ac;
+    --warning-200: #ffee82;
+    --warning-300: #ffe858;
+    --warning-400: #ffe32f;
+    --warning-500: #ffdd05;
+    --warning-600: #eece00;
+    --warning-700: #d9bb00;
+    --warning-800: #c3a800;
+    --warning-900: #ad9600;
+
+    --info-50: #dff9fe;
+    --info-100: #bff2fd;
+    --info-200: #9eecfd;
+    --info-300: #7ee5fc;
+    --info-400: #5edefb;
+    --info-500: #3ed8fa;
+    --info-600: #0bcef9;
+    --info-700: #05a7cb;
+    --info-800: #047d98;
+    --info-900: #035465;
+
+    --box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+
+    --dialog-background-color: rgba(0, 0, 0, 0.75);
+    --dialog-blur: blur(25px);
+
+    --border-radius-out: 5px;
+    --border-radius-in: 2.5px;
+
+    --slide-in-delay: 0.5s;
+    --max-width: 1544px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  article,
+  aside,
+  details,
+  dialog,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  menu,
+  nav,
+  section,
+  summary,
+  template,
+  video,
+  audio,
+  canvas,
+  picture {
+    display: block;
+  }
+
+  ul,
+  ol {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    border: none;
+    background: none;
+    color: inherit;
+  }
+
+  button,
+  a,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
+    content: "";
+    content: none;
+  }
+
+  dialog,
+  [popover] {
+    background: var(--neutral-50);
+    border: none;
+    inset: unset;
+  }
+
+  template {
+    display: none;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+  }
+
+  body {
+    background-color: var(--neutral-900);
+    color: var(--neutral-50);
+    font-family: var(--unbounded-font);
+    font-size: var(--text-body-base);
+    font-weight: 300;
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-weight: 600;
+    line-height: 1.25;
+    text-wrap: balance;
+    font-family: var(--unbounded-font);
+    text-transform: uppercase;
+  }
+
+  .root {
+    position: relative;
+    overflow: hidden;
+  }
 </style>
