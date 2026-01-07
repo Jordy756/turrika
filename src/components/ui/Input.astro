@@ -1,44 +1,43 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"button"> {
-  variant?: "primary" | "secondary";
+interface Props extends HTMLAttributes<"input"> {
+  id: string;
+  label: string;
 }
 
-const { variant = "primary", class: className, ...props } = Astro.props;
+const { id, label, ...props } = Astro.props;
 ---
 
-<button class:list={[variant, className]} {...props}>
-  <slot />
-</button>
+<div class="input__box">
+  <label for={id}>{label}</label>
+  <input id={id} {...props} />
+</div>
 
 <style>
-  button {
+  .input__box {
+    flex: 1;
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 11px 23px;
-    border: 1px solid transparent;
-    text-align: center;
   }
 
-  .primary {
-    background-color: var(--primary-500);
-    color: var(--neutral-50);
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
+  .input__box > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
   }
 
-  .primary:hover {
-    background-color: var(--primary-300);
+  .input__box > input {
+    flex: 1;
+    padding: 12px;
+    background-color: var(--neutral-50);
     color: var(--neutral-900);
-  }
-
-  .secondary {
-    background-color: transparent;
-    color: var(--primary-500);
-    border-color: var(--primary-500);
+    border: none;
+    outline: none;
+    font-family: var(--manrope-font);
+    font-weight: 400;
   }
 </style>

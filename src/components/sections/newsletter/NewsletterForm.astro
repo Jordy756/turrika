@@ -1,0 +1,65 @@
+---
+import ArrowIcon from "@components/icons/Arrow.astro";
+import Input from "@components/ui/Input.astro";
+import Button from "@components/ui/Button.astro";
+---
+
+<section class="newsletter">
+  <h4>Suscríbete</h4>
+  <div>
+    <form class="newsletter__form">
+      <Input id="email" label="Email" type="email" name="email" placeholder="Escribe tu email" />
+      <Button>
+        <ArrowIcon width={20} />
+      </Button>
+    </form>
+    <p>
+      Al suscribirte, aceptas nuestra
+      <button command="show-modal" commandfor="policy-modal">política de privacidad</button>.
+    </p>
+  </div>
+</section>
+
+<style>
+  .newsletter,
+  .newsletter > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .newsletter {
+    grid-area: form;
+    max-width: 400px;
+    animation: slideInLeft var(--slide-in-delay) ease-in-out;
+  }
+
+  .newsletter > h4 {
+    font-size: var(--text-heading-small);
+  }
+
+  .newsletter > div > form {
+    display: flex;
+  }
+
+  .newsletter > div > p {
+    font-family: var(--manrope-font);
+    font-weight: 300;
+  }
+
+  .newsletter > div > p > button {
+    text-decoration: underline;
+    font-weight: 300;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(700px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+</style>

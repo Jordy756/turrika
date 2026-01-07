@@ -1,21 +1,16 @@
 ---
-import Button from "@components/ui/Button.astro";
-import Modal from "@components/ui/Modal.astro";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/layout/Header.astro";
 import Hero from "@components/sections/hero/Hero.astro";
+import PoliciesSection from "@components/sections/policies/PoliciesSection.astro";
 ---
 
 <Layout title="Turrika - Home">
   <Header />
   <main>
     <Hero />
-    <button commandfor="test" command="show-modal">Open Dialog</button>
   </main>
-  <Modal id="test" title="Test Modal">
-    <p>This is a test modal content.</p>
-    <Button command="close" commandfor="test">Close</Button>
-  </Modal>
+  <PoliciesSection id="policy-modal" title="Política de Privacidad" />
 </Layout>
 
 <style>

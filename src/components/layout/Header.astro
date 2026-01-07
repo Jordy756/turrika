@@ -2,18 +2,22 @@
 import CloseIcon from "@components/icons/Close.astro";
 ---
 
-<header>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#ingredients">Ingredientes</a></li>
-    <li><a href="#steps">Pasos</a></li>
-  </ul>
+<header class="header">
   <nav>
-    <button popovertarget="nav-popover">
-      <span></span>
-      <span></span>
-    </button>
-    <h1>Turríka</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#ingredients">Ingredientes</a></li>
+      <li><a href="#steps">Pasos</a></li>
+    </ul>
+    <div>
+      <button popovertarget="nav-popover">
+        <span></span>
+        <span></span>
+      </button>
+      <h1>
+        <a href="/#">Turríka</a>
+      </h1>
+    </div>
   </nav>
 </header>
 
@@ -23,7 +27,9 @@ import CloseIcon from "@components/icons/Close.astro";
       <button popovertarget="nav-popover" popovertargetaction="hide">
         <CloseIcon width={24} />
       </button>
-      <h1>Turríka</h1>
+      <h1>
+        <a href="/#">Turríka</a>
+      </h1>
     </div>
     <ul>
       <li><a href="#">Home</a></li>
@@ -34,34 +40,37 @@ import CloseIcon from "@components/icons/Close.astro";
 </div>
 
 <style>
-  header {
+  .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 4rem;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
     animation: slideInDown var(--slide-in-delay) ease-in-out;
     z-index: 998;
   }
 
-  header > ul {
+  .header > nav {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .header > nav > :is(ul, div) {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
   }
 
-  header > nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1rem;
+  .header > nav > ul {
+    align-items: start;
+    flex-direction: column;
+    gap: 0;
   }
 
-  header > nav > button {
+  .header > nav > div > button {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -70,20 +79,20 @@ import CloseIcon from "@components/icons/Close.astro";
     width: 55px;
   }
 
-  header > nav > button > span {
+  .header > nav > div > button > span {
     height: 4px;
     background-color: var(--neutral-50);
   }
 
-  header > nav > button > span:first-child {
+  .header > nav > div > button > span:first-child {
     width: 66.6%;
   }
 
-  header > nav > button > span:last-child {
+  .header > nav > div > button > span:last-child {
     width: 100%;
   }
 
-  header > nav > h1,
+  .header > nav > div > h1,
   .nav__dialog > nav > div > h1 {
     font-weight: 600;
     font-size: var(--text-display-extra-small);
@@ -109,21 +118,13 @@ import CloseIcon from "@components/icons/Close.astro";
   }
 
   .nav__dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(0px);
     transition:
       background-color 0.3s ease-in-out,
-      backdrop-filter 0.3s ease-in-out,
-      overlay 0.3s ease-in-out allow-discrete,
-      display 0.3s ease-in-out allow-discrete;
+      backdrop-filter 0.3s ease-in-out;
   }
 
   .nav__dialog:popover-open::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-  }
-
-  .nav__dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4px);
   }
 

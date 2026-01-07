@@ -38,14 +38,25 @@ const { id, title } = Astro.props;
     backdrop-filter: var(--dialog-blur);
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    box-shadow: var(--box-shadow);
     transition:
       transform 0.5s ease-in-out,
+      overlay 0.5s ease-in allow-discrete,
       display 0.5s ease-in allow-discrete;
   }
 
   dialog[open] {
     transform: translate(-50%, 0);
+  }
+
+  dialog::backdrop {
+    transition:
+      background-color 0.3s ease-in-out,
+      backdrop-filter 0.3s ease-in-out;
+  }
+
+  dialog[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
   }
 
   dialog > header {
@@ -68,6 +79,11 @@ const { id, title } = Astro.props;
   @starting-style {
     dialog[open] {
       transform: translate(-50%, 100%);
+    }
+
+    dialog[open]::backdrop {
+      background-color: rgba(0, 0, 0, 0);
+      backdrop-filter: blur(0px);
     }
   }
 </style>

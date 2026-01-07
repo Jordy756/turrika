@@ -1,0 +1,21 @@
+---
+import ModalPolicies from "./ModalPolicies.astro";
+
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<ModalPolicies id={id} title={title}>
+  <p>This is a test modal content.</p>
+</ModalPolicies>
+
+<style>
+  p {
+    font-family: var(--manrope-font);
+    font-weight: 400;
+  }
+</style>
