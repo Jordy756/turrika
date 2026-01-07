@@ -1,0 +1,191 @@
+---
+import CloseIcon from "@components/icons/Close.astro";
+---
+
+<header>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#ingredients">Ingredientes</a></li>
+    <li><a href="#steps">Pasos</a></li>
+  </ul>
+  <nav>
+    <button popovertarget="nav-popover">
+      <span></span>
+      <span></span>
+    </button>
+    <h1>Turríka</h1>
+  </nav>
+</header>
+
+<div id="nav-popover" class="nav__dialog" popover>
+  <nav>
+    <div>
+      <button popovertarget="nav-popover" popovertargetaction="hide">
+        <CloseIcon width={24} />
+      </button>
+      <h1>Turríka</h1>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#ingredients">Ingredientes</a></li>
+      <li><a href="#steps">Pasos</a></li>
+    </ul>
+  </nav>
+</div>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    animation: slideInDown var(--slide-in-delay) ease-in-out;
+    z-index: 998;
+  }
+
+  header > ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  header > nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  header > nav > button {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 55px;
+  }
+
+  header > nav > button > span {
+    height: 4px;
+    background-color: var(--neutral-50);
+  }
+
+  header > nav > button > span:first-child {
+    width: 66.6%;
+  }
+
+  header > nav > button > span:last-child {
+    width: 100%;
+  }
+
+  header > nav > h1,
+  .nav__dialog > nav > div > h1 {
+    font-weight: 600;
+    font-size: var(--text-display-extra-small);
+  }
+
+  .nav__dialog {
+    top: 0;
+    right: 0;
+    display: flex;
+    min-height: 100dvh;
+    color: var(--neutral-50);
+    background-color: var(--dialog-background-color);
+    backdrop-filter: var(--dialog-blur);
+    transform: translateX(100%);
+    transition:
+      transform 0.3s ease-in-out,
+      overlay 0.3s ease-in-out allow-discrete,
+      display 0.3s ease-in-out allow-discrete;
+  }
+
+  .nav__dialog:popover-open {
+    transform: translateX(0);
+  }
+
+  .nav__dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    transition:
+      background-color 0.3s ease-in-out,
+      backdrop-filter 0.3s ease-in-out,
+      overlay 0.3s ease-in-out allow-discrete,
+      display 0.3s ease-in-out allow-discrete;
+  }
+
+  .nav__dialog:popover-open::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .nav__dialog::backdrop {
+    backdrop-filter: blur(4px);
+  }
+
+  .nav__dialog > nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 4rem;
+  }
+
+  .nav__dialog > nav > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .nav__dialog > nav > div > button {
+    padding: 12px;
+    display: grid;
+    place-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    aspect-ratio: 1;
+    border-radius: 99999px;
+  }
+
+  .nav__dialog > nav > div > h1 {
+    color: var(--primary-300);
+  }
+
+  .nav__dialog > nav > ul > li > a {
+    font-size: var(--text-display-medium);
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .nav__dialog > nav > ul > li > a:hover {
+    color: var(--primary-100);
+  }
+
+  @starting-style {
+    .nav__dialog:popover-open {
+      transform: translateX(100%);
+    }
+
+    .nav__dialog:popover-open::backdrop {
+      background-color: rgba(0, 0, 0, 0);
+      backdrop-filter: blur(0px);
+    }
+  }
+
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-700px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

@@ -34,7 +34,9 @@ const { title } = Astro.props;
         <meta name="twitter:image" content={ogImage} /> -->
   </head>
   <body>
-    <slot />
+    <div class="root">
+      <slot />
+    </div>
   </body>
 </html>
 
@@ -228,9 +230,16 @@ const { title } = Astro.props;
 
   dialog,
   [popover] {
+    position: fixed;
+    inset: unset;
     background: var(--neutral-50);
     border: none;
-    inset: unset;
+    z-index: 999;
+  }
+
+  dialog::backdrop,
+  [popover]::backdrop {
+    backdrop-filter: blur(4px);
   }
 
   template {

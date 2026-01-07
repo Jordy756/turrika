@@ -1,0 +1,54 @@
+{
+  "ingredients": [
+    {
+      "image": {
+        "url": "https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323458/queso_uiprix.webp",
+        "alt": "Bloque de queso sin sal fresco de color blanco"
+      },
+      "name": "Queso sin sal",
+      "description": "Base fundamental que aporta cremosidad.",
+      "quantity": "½ kilo"
+    },
+    {
+      "image": {
+        "url": "https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323457/dulce_d1ednb.webp",
+        "alt": "Cubos de dulce o panela de color cafe"
+      },
+      "name": "Dulce o miel",
+      "quantity": "½ tapa o 1 taza",
+      "description": "Dulzor esencial para el balance perfecto."
+    },
+    {
+      "image": {
+        "url": "https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323458/canela_ppwdk8.webp",
+        "alt": "Ramitas de canela en polvo y enteras de color marrón"
+      },
+      "name": "Canela",
+      "quantity": "Al gusto",
+      "description": "Opcional, añade aroma y carácter."
+    }
+  ],
+  "steps": [
+    {
+      "description": "Cortar el queso en cuadritos o tiras, según preferencia."
+    },
+    {
+      "description": "Colocar el queso en una cacerola a fuego lento."
+    },
+    {
+      "description": "Añadir la miel o el dulce elegido sobre el queso."
+    },
+    {
+      "description": "Cocinar a fuego lento durante 30 minutos "
+    },
+    {
+      "description": "Pinchar el queso para que absorba el dulce."
+    },
+    {
+      "description": "Espolvorear canela al gusto, si se desea."
+    },
+    {
+      "description": "Servir caliente o frío y disfrutar al gusto."
+    }
+  ]
+}
