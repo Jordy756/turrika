@@ -20,9 +20,9 @@ import CloseIcon from "@components/icons/Close.astro";
       <button popovertarget="nav-popover" popovertargetaction="hide">
         <CloseIcon width={24} />
       </button>
-      <h1>
+      <h2>
         <a href="/#">Turríka</a>
-      </h1>
+      </h2>
     </div>
     <ul>
       <li><a href="#">Home</a></li>
@@ -34,13 +34,16 @@ import CloseIcon from "@components/icons/Close.astro";
 
 <style>
   .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 4rem;
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    width: calc(100% - 8rem);
     animation: slideInDown var(--slide-in-delay) ease-in-out;
     z-index: 998;
+  }
+
+  .header.is__fixed {
+    position: fixed;
   }
 
   .header > nav {
@@ -73,7 +76,7 @@ import CloseIcon from "@components/icons/Close.astro";
   }
 
   .header > nav > h1,
-  .nav__dialog > nav > h1 {
+  .nav__dialog > nav > div > h2 {
     font-weight: 600;
     font-size: var(--text-display-extra-small);
   }
@@ -139,6 +142,7 @@ import CloseIcon from "@components/icons/Close.astro";
 
   .nav__dialog > nav > ul > li > a {
     font-size: var(--text-display-medium);
+    font-family: var(--font-display);
     font-weight: 500;
     text-transform: uppercase;
     transition: color 0.3s ease-in-out;
@@ -170,3 +174,28 @@ import CloseIcon from "@components/icons/Close.astro";
     }
   }
 </style>
+
+<script>
+  // TODO: DO IN A BETTER WAY
+  const header = document.querySelector(".header");
+  const hero = document.querySelector("#hero");
+
+  // Intersection Observer: observa cuando el hero sale del viewport
+  const callback = (entries: any[]) => {
+    entries.forEach((entry: any) => {
+      if (!entry.isIntersecting) {
+        // Hero salió de vista → header pasa a fixed
+        header?.classList.add("is__fixed");
+      } else {
+        // Hero está visible → header se queda en absolute
+        header?.classList.remove("is__fixed");
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(callback, {
+    threshold: 0,
+  });
+
+  observer.observe(hero!);
+</script>
