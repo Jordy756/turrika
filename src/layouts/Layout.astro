@@ -42,8 +42,8 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --unbounded-font: var(--font-unbounded), "Open Sans", sans-serif, system-ui;
-    --poppins-font: var(--font-poppins), "Inter", sans-serif, system-ui;
+    --font-display: var(--font-unbounded), "Open Sans", sans-serif, system-ui;
+    --font-body: var(--font-poppins), "Inter", sans-serif, system-ui;
 
     --text-hero-giant: clamp(9.375rem, 12vw + 2rem, 18.75rem);
     --text-hero-extra-large: clamp(3.75rem, 10vw + 24px, 15.625rem);
@@ -260,9 +260,9 @@ const { title } = Astro.props;
   body {
     background-color: var(--neutral-900);
     color: var(--neutral-50);
-    font-family: var(--unbounded-font);
+    font-family: var(--font-body);
     font-size: var(--text-body-base);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.75;
     text-wrap: pretty;
   }
@@ -271,7 +271,7 @@ const { title } = Astro.props;
     font-weight: 600;
     line-height: 1.25;
     text-wrap: balance;
-    font-family: var(--unbounded-font);
+    font-family: var(--font-display);
     text-transform: uppercase;
   }
 
