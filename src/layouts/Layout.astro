@@ -17,7 +17,7 @@ const { title } = Astro.props;
     <title>{title}</title>
 
     <Font cssVariable="--font-unbounded" />
-    <Font cssVariable="--font-manrope" />
+    <Font cssVariable="--font-poppins" />
 
     <!-- <meta name="description" content={summary} />
         <meta property="og:url" content={url} />
@@ -43,7 +43,7 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     --unbounded-font: var(--font-unbounded), "Open Sans", sans-serif, system-ui;
-    --manrope-font: var(--font-manrope), "Inter", sans-serif, system-ui;
+    --poppins-font: var(--font-poppins), "Inter", sans-serif, system-ui;
 
     --text-hero-giant: clamp(9.375rem, 12vw + 2rem, 18.75rem);
     --text-hero-extra-large: clamp(3.75rem, 10vw + 24px, 15.625rem);
@@ -86,6 +86,7 @@ const { title } = Astro.props;
     --primary-700: #a1550a;
     --primary-800: #794008;
     --primary-900: #512b05;
+    --primary-950: #281401;
 
     --secondary-500: #cec9c9;
 

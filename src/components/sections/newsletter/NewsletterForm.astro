@@ -30,7 +30,8 @@ import Button from "@components/ui/Button.astro";
 
   .newsletter {
     grid-area: form;
-    max-width: 400px;
+    align-self: center;
+    max-width: 450px;
     animation: slideInLeft var(--slide-in-delay) ease-in-out;
   }
 
@@ -43,13 +44,18 @@ import Button from "@components/ui/Button.astro";
   }
 
   .newsletter > div > p {
-    font-family: var(--manrope-font);
-    font-weight: 300;
+    font-family: var(--poppins-font);
+    font-weight: 400;
   }
 
   .newsletter > div > p > button {
+    font-weight: 600;
     text-decoration: underline;
-    font-weight: 300;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .newsletter > div > p > button:hover {
+    opacity: 0.85;
   }
 
   @keyframes slideInLeft {

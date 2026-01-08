@@ -18,10 +18,10 @@ export default defineConfig({
       },
       {
         provider: fontProviders.google(),
-        name: "Manrope",
-        cssVariable: "--font-manrope",
+        name: "Poppins",
+        cssVariable: "--font-poppins",
         styles: ["normal"],
-        weights: [300, 400, 500, 600, 700],
+        weights: [400, 600],
         display: "swap",
         subsets: ["latin"],
       },

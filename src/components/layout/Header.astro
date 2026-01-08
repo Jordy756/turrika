@@ -4,20 +4,13 @@ import CloseIcon from "@components/icons/Close.astro";
 
 <header class="header">
   <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#ingredients">Ingredientes</a></li>
-      <li><a href="#steps">Pasos</a></li>
-    </ul>
-    <div>
-      <button popovertarget="nav-popover">
-        <span></span>
-        <span></span>
-      </button>
-      <h1>
-        <a href="/#">Turríka</a>
-      </h1>
-    </div>
+    <button popovertarget="nav-popover">
+      <span></span>
+      <span></span>
+    </button>
+    <h1>
+      <a href="/#">Turríka</a>
+    </h1>
   </nav>
 </header>
 
@@ -52,25 +45,12 @@ import CloseIcon from "@components/icons/Close.astro";
 
   .header > nav {
     display: flex;
-    align-items: start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-end;
     gap: 1rem;
   }
 
-  .header > nav > :is(ul, div) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .header > nav > ul {
-    align-items: start;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .header > nav > div > button {
+  .header > nav > button {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -79,21 +59,21 @@ import CloseIcon from "@components/icons/Close.astro";
     width: 55px;
   }
 
-  .header > nav > div > button > span {
+  .header > nav > button > span {
     height: 4px;
     background-color: var(--neutral-50);
   }
 
-  .header > nav > div > button > span:first-child {
+  .header > nav > button > span:first-child {
     width: 66.6%;
   }
 
-  .header > nav > div > button > span:last-child {
+  .header > nav > button > span:last-child {
     width: 100%;
   }
 
-  .header > nav > div > h1,
-  .nav__dialog > nav > div > h1 {
+  .header > nav > h1,
+  .nav__dialog > nav > h1 {
     font-weight: 600;
     font-size: var(--text-display-extra-small);
   }
