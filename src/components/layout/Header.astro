@@ -136,7 +136,7 @@ import CloseIcon from "@components/icons/Close.astro";
     border-radius: 99999px;
   }
 
-  .nav__dialog > nav > div > h1 {
+  .nav__dialog > nav > div > h2 {
     color: var(--primary-300);
   }
 
@@ -174,28 +174,3 @@ import CloseIcon from "@components/icons/Close.astro";
     }
   }
 </style>
-
-<script>
-  // TODO: DO IN A BETTER WAY
-  const header = document.querySelector(".header");
-  const hero = document.querySelector("#hero");
-
-  // Intersection Observer: observa cuando el hero sale del viewport
-  const callback = (entries: any[]) => {
-    entries.forEach((entry: any) => {
-      if (!entry.isIntersecting) {
-        // Hero salió de vista → header pasa a fixed
-        header?.classList.add("is__fixed");
-      } else {
-        // Hero está visible → header se queda en absolute
-        header?.classList.remove("is__fixed");
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(callback, {
-    threshold: 0,
-  });
-
-  observer.observe(hero!);
-</script>

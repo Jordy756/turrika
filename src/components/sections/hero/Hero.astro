@@ -55,7 +55,8 @@ import Corners from "@components/sections/hero/Corners.astro";
 
   .hero > article > .pork__rinds-title {
     grid-area: pork-rinds;
-    font-size: var(--text-hero-large);
+    font-size: calc(7.5vw + 1rem);
+    /* font-size: var(--text-hero-large); */
     text-align: center;
     animation: slideInUp var(--slide-in-delay) ease-in-out;
   }
@@ -65,7 +66,9 @@ import Corners from "@components/sections/hero/Corners.astro";
     grid-area: cheese;
     writing-mode: sideways-lr;
     color: var(--primary-400);
-    font-size: var(--text-hero-small);
+    /* font-size: var(--text-hero-small); */
+    font-size: calc(5.5vw + 1rem);
+
     animation: slideInRight var(--slide-in-delay) ease-in-out;
   }
 

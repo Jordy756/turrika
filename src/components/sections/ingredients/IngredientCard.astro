@@ -13,83 +13,97 @@ interface Props {
 }
 
 const { index, image, name, description, quantity } = Astro.props;
+const number = index.padStart(2, "0");
 ---
 
 <article class="ingredient__card">
-  <aside>{index.padStart(2, "0")}</aside>
   <div>
-    <header>
-      <h3>{name}</h3>
-      <h4>{quantity}</h4>
-    </header>
-    <section>
-      <p>{description}</p>
-      <figure>
-        <Image src={image.url} alt={image.alt} width={100} height={100} />
-      </figure>
-    </section>
+    <aside>
+      <span>{number}</span>
+    </aside>
+    <div>
+      <header>
+        <h3>{name}</h3>
+        <h4>{quantity}</h4>
+      </header>
+      <section>
+        <p>{description}</p>
+        <figure>
+          <Image src={image.url} alt={image.alt} width={100} height={100} />
+        </figure>
+      </section>
+    </div>
   </div>
 </article>
 
 <style>
   .ingredient__card {
     display: flex;
-    gap: 5rem;
-    padding: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
     min-height: 100dvh;
-  }
-
-  .ingredient__card > aside {
-    padding-block: 1.5rem;
   }
 
   .ingredient__card > div {
     display: flex;
-    flex-direction: column;
     gap: 2rem;
   }
 
-  .ingredient__card > div > header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .ingredient__card > div > aside {
+    margin-top: 1rem;
   }
 
-  .ingredient__card > div > header > h3 {
+  .ingredient__card > div > div,
+  .ingredient__card > div > div > header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredient__card > div > div {
+    gap: 2rem;
+  }
+
+  .ingredient__card > div > div > header {
+    gap: 0.25rem;
+  }
+
+  .ingredient__card > div > div > header > h3 {
+    position: relative;
     font-size: var(--text-display-medium);
     color: var(--primary-100);
   }
 
-  .ingredient__card > div > header > h4 {
-    font-size: var(--text-heading-medium);
-    font-weight: 400;
-    opacity: 0.9;
+  .ingredient__card > div > div > header > h4 {
+    font-size: var(--text-heading-small);
+    font-weight: 600;
   }
 
-  .ingredient__card > div > section {
+  .ingredient__card > div > div > section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
 
-  .ingredient__card > div > section > p {
+  .ingredient__card > div > div > section > p {
     font-size: var(--text-body-large);
+    color: var(--neutral-100);
   }
 
-  .ingredient__card > div > section > figure {
+  .ingredient__card > div > div > section > figure {
     max-width: 600px;
     width: 100%;
     aspect-ratio: 1;
     display: flex;
-    animation: moveDown 1s ease-in-out infinite alternate;
+    animation: moveUpAndDown 2s ease-in-out infinite alternate;
   }
 
-  .ingredient__card > div > section > figure > img {
+  .ingredient__card > div > div > section > figure > img {
     width: 100%;
     height: 100%;
   }
 
-  @keyframes moveDown {
+  @keyframes moveUpAndDown {
     from {
       transform: translateY(0);
     }

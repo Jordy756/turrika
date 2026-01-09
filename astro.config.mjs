@@ -15,6 +15,7 @@ export default defineConfig({
         weights: [300, 400, 500, 600, 700],
         display: "swap",
         subsets: ["latin"],
+        fallbacks: ["cursive", "sans-serif"],
       },
       {
         provider: fontProviders.google(),
@@ -24,6 +25,7 @@ export default defineConfig({
         weights: [400, 600],
         display: "swap",
         subsets: ["latin"],
+        fallbacks: ["sans-serif", "system-ui"],
       },
     ],
   },

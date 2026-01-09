@@ -29,7 +29,21 @@ import { ingredients } from "@data";
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ingredients > article::before,
+  .ingredients > article::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 100%;
     background-color: var(--primary-950);
+    z-index: 1;
+  }
+
+  .ingredients > article::before {
+    left: 0;
   }
 
   .ingredients > article {
@@ -45,16 +59,20 @@ import { ingredients } from "@data";
     align-self: start;
   }
 
+  .ingredients > article::after {
+    right: -100%;
+  }
+
   .ingredients > article > span {
     position: absolute;
-    top: 16px;
+    top: 1rem;
     left: 100%;
     transform: translateX(-50%);
     color: var(--primary-50);
-    font-size: var(--text-hero-giant);
+    font-size: calc(12.5vw + 1rem);
     font-family: var(--font-display);
     font-weight: 500;
-    line-height: normal;
+    line-height: 1;
     text-transform: uppercase;
   }
 
@@ -82,6 +100,8 @@ import { ingredients } from "@data";
   .ingredients > div {
     display: flex;
     flex-direction: column;
+    width: 75%;
+    margin-left: auto;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(15px);
   }
