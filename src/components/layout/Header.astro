@@ -4,7 +4,7 @@ import CloseIcon from "@components/icons/Close.astro";
 
 <header class="header">
   <nav>
-    <button popovertarget="nav-popover">
+    <button popovertarget="nav-popover" title="Abrir menú de navegación" aria-label="Abrir menú de navegación">
       <span></span>
       <span></span>
     </button>
@@ -17,7 +17,12 @@ import CloseIcon from "@components/icons/Close.astro";
 <div id="nav-popover" class="nav__dialog" popover>
   <nav>
     <div>
-      <button popovertarget="nav-popover" popovertargetaction="hide">
+      <button
+        popovertarget="nav-popover"
+        popovertargetaction="hide"
+        title="Cerrar menú de navegación"
+        aria-label="Cerrar menú de navegación"
+      >
         <CloseIcon width={24} />
       </button>
       <h2>

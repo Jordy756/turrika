@@ -12,7 +12,7 @@ const { id, title } = Astro.props;
 <dialog id={id} closedby="any">
   <header>
     <h2>{title}</h2>
-    <button command="close" commandfor={id}>
+    <button command="close" commandfor={id} title={`Cerrar ${title}`} aria-label={`Cerrar ${title}`}>
       <CloseIcon width={24} />
     </button>
   </header>

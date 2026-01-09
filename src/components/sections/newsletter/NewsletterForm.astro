@@ -5,17 +5,24 @@ import Button from "@components/ui/Button.astro";
 ---
 
 <section class="newsletter">
-  <h4>Suscríbete</h4>
+  <h2>Suscríbete</h2>
   <div>
     <form class="newsletter__form">
       <Input id="email" label="Email" type="email" name="email" placeholder="Escribe tu email" />
-      <Button>
+      <Button type="submit" title="Suscribirse a la newsletter" aria-label="Suscribirse a la newsletter">
         <ArrowIcon width={20} />
       </Button>
     </form>
     <p>
       Al suscribirte, aceptas nuestra
-      <button command="show-modal" commandfor="policy-modal">política de privacidad</button>.
+      <button
+        command="show-modal"
+        commandfor="policy-modal"
+        title="Mostrar política de privacidad"
+        aria-label="Mostrar política de privacidad"
+      >
+        política de privacidad
+      </button>.
     </p>
   </div>
 </section>
@@ -35,7 +42,7 @@ import Button from "@components/ui/Button.astro";
     animation: slideInLeft var(--slide-in-delay) ease-in-out;
   }
 
-  .newsletter > h4 {
+  .newsletter > h2 {
     font-size: var(--text-heading-small);
   }
 

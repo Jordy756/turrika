@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const summary = "Turrika - La tienda en línea para tus antojos de turrones y dulces tradicionales.";
 ---
 
 <!doctype html>
@@ -19,7 +20,9 @@ const { title } = Astro.props;
     <Font cssVariable="--font-unbounded" />
     <Font cssVariable="--font-poppins" />
 
-    <!-- <meta name="description" content={summary} />
+    <meta name="description" content={summary} />
+
+    <!--  
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
