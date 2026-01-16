@@ -4,6 +4,8 @@ import Header from "@components/layout/Header.astro";
 import Hero from "@components/sections/hero/Hero.astro";
 import PoliciesSection from "@components/sections/policies/PoliciesSection.astro";
 import Ingredients from "@components/sections/ingredients/Ingredients.astro";
+import Steps from "@components/sections/steps/Steps.astro";
+import History from "@components/sections/history/History.astro";
 
 // TODO: IMPROVE THE FONT SIZE ACROSS THE ENTIRE WEBSITE
 ---
@@ -12,7 +14,12 @@ import Ingredients from "@components/sections/ingredients/Ingredients.astro";
   <Header />
   <main>
     <Hero />
+    <History id="history-01" />
     <Ingredients />
+    <!-- <Steps /> -->
+    <!-- <History id="history-02">
+      
+    </History> -->
   </main>
   <PoliciesSection id="policy-modal" title="Política de Privacidad" />
 </Layout>

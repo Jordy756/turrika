@@ -2,7 +2,7 @@
   "ingredients": [
     {
       "image": {
-        "url": "https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323458/queso_uiprix.webp",
+        "url": "/queso.webp",
         "alt": "Bloque de queso sin sal fresco de color blanco"
       },
       "name": "Queso sin sal",
@@ -11,7 +11,7 @@
     },
     {
       "image": {
-        "url": "https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323457/dulce_d1ednb.webp",
+        "url": "/dulce.webp",
         "alt": "Cubos de dulce o panela de color cafe"
       },
       "name": "Dulce o miel",
@@ -20,7 +20,7 @@
     },
     {
       "image": {
-        "url": "https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323458/canela_ppwdk8.webp",
+        "url": "/canela.webp",
         "alt": "Ramitas de canela en polvo y enteras de color marrón"
       },
       "name": "Canela",
@@ -30,25 +30,53 @@
   ],
   "steps": [
     {
-      "description": "Cortar el queso en cuadritos o tiras, según preferencia."
+      "description": "Cortar el queso en cuadritos o tiras, según preferencia.",
+      "image": {
+        "url": "/step_img_01.png",
+        "alt": ""
+      }
     },
     {
-      "description": "Colocar el queso en una cacerola a fuego lento."
+      "description": "Pinchar el queso para que absorba el dulce.",
+      "image": {
+        "url": "/step_img_02.png",
+        "alt": ""
+      }
     },
     {
-      "description": "Añadir la miel o el dulce elegido sobre el queso."
+      "description": "Colocar el queso en una cacerola a fuego lento.",
+      "image": {
+        "url": "/step_img_03.png",
+        "alt": ""
+      }
     },
     {
-      "description": "Cocinar a fuego lento durante 30 minutos "
+      "description": "Añadir la miel o el dulce elegido sobre el queso.",
+      "image": {
+        "url": "/step_img_04.png",
+        "alt": ""
+      }
     },
     {
-      "description": "Pinchar el queso para que absorba el dulce."
+      "description": "Cocinar a fuego lento durante 30 minutos.",
+      "image": {
+        "url": "/step_img_05.png",
+        "alt": ""
+      }
     },
     {
-      "description": "Espolvorear canela al gusto, si se desea."
+      "description": "Servir caliente o frío y disfrutar al gusto.",
+      "image": {
+        "url": "/step_img_06.png",
+        "alt": ""
+      }
     },
     {
-      "description": "Servir caliente o frío y disfrutar al gusto."
+      "description": "Espolvorear canela al gusto, si se desea.",
+      "image": {
+        "url": "/step_img_07.png",
+        "alt": ""
+      }
     }
   ]
 }

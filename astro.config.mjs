@@ -15,6 +15,7 @@ export default defineConfig({
         weights: [300, 400, 500, 600, 700],
         display: "swap",
         subsets: ["latin"],
+        formats: ["woff2"],
         fallbacks: ["cursive", "sans-serif"],
       },
       {
@@ -25,6 +26,7 @@ export default defineConfig({
         weights: [400, 600],
         display: "swap",
         subsets: ["latin"],
+        formats: ["woff2"],
         fallbacks: ["sans-serif", "system-ui"],
       },
     ],

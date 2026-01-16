@@ -1,0 +1,47 @@
+---
+import StepCard from "@components/sections/steps/StepCard.astro";
+import { steps } from "@data";
+
+const anglePerStep = 360 / steps.length;
+---
+
+<section id="steps" class="steps">
+  <h2>Manos a la obra</h2>
+  <!-- <div>
+    {steps.map((step, index) => <StepCard index={index} image={step.image} />)}
+  </div> -->
+</section>
+
+<div style={{ "--angle-per-step": anglePerStep }}>
+  {steps.map((step, index) => <StepCard index={index} image={step.image} />)}
+</div>
+
+<style>
+  .steps {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .steps > h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--text-hero-extra-large);
+    text-align: center;
+    max-width: 6ch;
+    z-index: 1;
+  }
+
+  div {
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+</style>
