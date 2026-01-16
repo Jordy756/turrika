@@ -3,36 +3,39 @@ import { Image } from "astro:assets";
 
 interface Props {
   index: number;
+  position: "left" | "right";
   image: {
     url: string;
     alt: string;
   };
 }
 
-const { index, image } = Astro.props;
+const { position, image } = Astro.props;
 ---
 
-<article class="step__card">
+<article class={`step-card step-card-${position}`}>
   <Image src={image.url} alt={image.alt} width={100} height={100} loading="lazy" decoding="async" />
 </article>
 
-<style is:global define:vars={{ "step-index": index }}>
-  .step__card {
-    transform: rotateY(calc(var(--step-index) * var(--angle-per-step) * 1deg)) translateX(-50%) translateY(-50%) translateZ(0px);
-  }
-</style>
-
 <style>
-  .step__card {
+  .step-card {
     position: absolute;
     top: 50%;
-    left: 50%;
+    transform: translateY(-50%);
     display: flex;
-    width: 200px;
-    height: 250px;
+    width: 500px;
+    height: 350px;
   }
 
-  .step__card > img {
+  .step-card-left {
+    right: 0;
+  }
+
+  .step-card-right {
+    left: 0;
+  }
+
+  .step-card > img {
     width: 100%;
     height: 100%;
     object-fit: cover;

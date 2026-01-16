@@ -30,6 +30,7 @@
   ],
   "steps": [
     {
+      "position": "left",
       "description": "Cortar el queso en cuadritos o tiras, según preferencia.",
       "image": {
         "url": "/step_img_01.png",
@@ -37,6 +38,7 @@
       }
     },
     {
+      "position": "right",
       "description": "Pinchar el queso para que absorba el dulce.",
       "image": {
         "url": "/step_img_02.png",
@@ -44,6 +46,7 @@
       }
     },
     {
+      "position": "left",
       "description": "Colocar el queso en una cacerola a fuego lento.",
       "image": {
         "url": "/step_img_03.png",
@@ -51,6 +54,7 @@
       }
     },
     {
+      "position": "right",
       "description": "Añadir la miel o el dulce elegido sobre el queso.",
       "image": {
         "url": "/step_img_04.png",
@@ -58,6 +62,7 @@
       }
     },
     {
+      "position": "left",
       "description": "Cocinar a fuego lento durante 30 minutos.",
       "image": {
         "url": "/step_img_05.png",
@@ -65,6 +70,7 @@
       }
     },
     {
+      "position": "right",
       "description": "Servir caliente o frío y disfrutar al gusto.",
       "image": {
         "url": "/step_img_06.png",
@@ -72,6 +78,7 @@
       }
     },
     {
+      "position": "left",
       "description": "Espolvorear canela al gusto, si se desea.",
       "image": {
         "url": "/step_img_07.png",

@@ -2,22 +2,30 @@
 import StepCard from "@components/sections/steps/StepCard.astro";
 import { steps } from "@data";
 
-const anglePerStep = 360 / steps.length;
+const leftSteps = [];
+const rightSteps = [];
+
+for (const step of steps) step.position === "left" ? leftSteps.push(step) : rightSteps.push(step);
 ---
 
-<section id="steps" class="steps">
+<section id="steps" class="steps-section">
   <h2>Manos a la obra</h2>
   <!-- <div>
     {steps.map((step, index) => <StepCard index={index} image={step.image} />)}
   </div> -->
 </section>
 
-<div style={{ "--angle-per-step": anglePerStep }}>
-  {steps.map((step, index) => <StepCard index={index} image={step.image} />)}
+<div class="steps">
+  <div>
+    {leftSteps.map((step, index) => <StepCard index={index} position="left" image={step.image} />)}
+  </div>
+  <div>
+    {rightSteps.map((step, index) => <StepCard index={index} position="right" image={step.image} />)}
+  </div>
 </div>
 
 <style>
-  .steps {
+  .steps-section {
     position: relative;
     display: flex;
     align-items: center;
@@ -26,7 +34,7 @@ const anglePerStep = 360 / steps.length;
     min-height: 100vh;
   }
 
-  .steps > h2 {
+  .steps-section > h2 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -37,11 +45,19 @@ const anglePerStep = 360 / steps.length;
     z-index: 1;
   }
 
-  div {
+  .steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
     width: 100%;
-    min-height: 100dvh;
+    height: 100dvh;
+    background-color: var(--neutral-50);
+  }
+
+  .steps > div {
+    flex: 1;
+    height: 100%;
     position: relative;
-    transform-style: preserve-3d;
-    perspective: 1000px;
   }
 </style>

@@ -7,20 +7,7 @@ const { id } = Astro.props;
 ---
 
 <section id={id} class="history-section">
-  <article>
-    <p class="start"><span>Dulce</span> y <span>queso</span></p>
-    <p class="center">se <span>unieron</span></p>
-    <p class="end">junto al fuego</p>
-    <p class="start">en manos</p>
-    <p class="end">de <span>Turrialba</span></p>
-  </article>
-  <article>
-    <p class="center">Pasó de <span>abuela</span></p>
-    <p class="start">a <span>nieta</span></p>
-    <p class="end">entre risas</p>
-    <p class="center">y café</p>
-    <p class="end">una <span>joya local</span></p>
-  </article>
+  <slot />
 </section>
 
 <style>
@@ -28,36 +15,39 @@ const { id } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 256px;
-    margin: 0 auto;
     padding: 2rem;
+    margin: 0 auto;
+    width: min(calc(var(--max-width) + 4rem), 100%);
+    height: 100dvh;
+    overflow-x: scroll;
+    margin-bottom: 2rem;
+    /* background: url(/public/step_img_06.png) no-repeat center / cover; */
   }
 </style>
 
 <style is:global>
-  .history-section > article > p {
+  .history-section > p {
     font-family: var(--font-display);
-    font-size: var(--text-hero-medium);
+    font-size: calc(15vw + 1rem);
     font-weight: 600;
-    /* font-size: calc(7.5vw + 1rem); */
     line-height: 1.25;
     text-transform: uppercase;
     white-space: nowrap;
   }
 
-  .history-section > article > p.start {
+  .history-section > p.start {
     text-align: start;
   }
 
-  .history-section > article > p.center {
+  .history-section > p.center {
     text-align: center;
   }
 
-  .history-section > article > p.end {
+  .history-section > p.end {
     text-align: end;
   }
 
-  .history-section > article > p > span {
+  .history-section > p > span {
     color: var(--primary-300);
   }
 </style>
