@@ -13,15 +13,18 @@ const { id } = Astro.props;
 <style>
   .history-section {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     padding: 2rem;
-    margin: 0 auto;
-    width: min(calc(var(--max-width) + 4rem), 100%);
+    width: 300vw;
     height: 100dvh;
-    overflow-x: scroll;
-    margin-bottom: 2rem;
-    /* background: url(/public/step_img_06.png) no-repeat center / cover; */
+    /* background: linear-gradient(
+      90deg,
+      var(--primary-50),
+      var(--primary-100),
+      var(--primary-200),
+      var(--primary-300),
+      var(--primary-400)
+    ); */
   }
 </style>
 
@@ -35,19 +38,9 @@ const { id } = Astro.props;
     white-space: nowrap;
   }
 
-  .history-section > p.start {
-    text-align: start;
-  }
-
-  .history-section > p.center {
-    text-align: center;
-  }
-
-  .history-section > p.end {
-    text-align: end;
-  }
-
   .history-section > p > span {
     color: var(--primary-300);
   }
 </style>
+
+<script src="../../../scripts/lib/history.ts"></script>

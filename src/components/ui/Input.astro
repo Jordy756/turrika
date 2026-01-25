@@ -1,40 +1,26 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"input"> {
-  id: string;
-  label: string;
-}
+interface Props extends HTMLAttributes<"input"> {}
 
-const { id, label, ...props } = Astro.props;
+const { ...props } = Astro.props;
 ---
 
-<div class="input__box">
-  <label for={id}>{label}</label>
-  <input id={id} {...props} />
-</div>
+<label class="input">
+  <input {...props} />
+</label>
 
 <style>
-  .input__box {
+  .input {
     flex: 1;
-    position: relative;
     display: flex;
-  }
-
-  .input__box > label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-  }
-
-  .input__box > input {
-    flex: 1;
-    padding: 12px;
     background-color: var(--neutral-50);
     color: var(--neutral-900);
+  }
+
+  .input > input {
+    flex: 1;
+    padding: 12px;
     border: none;
     outline: none;
   }

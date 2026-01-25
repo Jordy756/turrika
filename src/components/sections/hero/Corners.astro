@@ -21,7 +21,6 @@
     top: var(--corner-spacing);
     border-top-color: var(--neutral-50);
     border-left-color: var(--neutral-50);
-    animation: slideInTopLeft var(--slide-in-delay) ease-in-out;
   }
 
   .corner__decoration.top__right {
@@ -29,7 +28,6 @@
     top: var(--corner-spacing);
     border-top-color: var(--neutral-50);
     border-right-color: var(--neutral-50);
-    animation: slideInTopRight var(--slide-in-delay) ease-in-out;
   }
 
   .corner__decoration.bottom__left {
@@ -37,7 +35,6 @@
     bottom: var(--corner-spacing);
     border-bottom-color: var(--neutral-50);
     border-left-color: var(--neutral-50);
-    animation: slideInBottomLeft var(--slide-in-delay) ease-in-out;
   }
 
   .corner__decoration.bottom__right {
@@ -45,50 +42,5 @@
     bottom: var(--corner-spacing);
     border-bottom-color: var(--neutral-50);
     border-right-color: var(--neutral-50);
-    animation: slideInBottomRight var(--slide-in-delay) ease-in-out;
-  }
-
-  @keyframes slideInTopLeft {
-    from {
-      transform: translate(-100%, -100%);
-      opacity: 0;
-    }
-    to {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInTopRight {
-    from {
-      transform: translate(100%, -100%);
-      opacity: 0;
-    }
-    to {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInBottomLeft {
-    from {
-      transform: translate(-100%, 100%);
-      opacity: 0;
-    }
-    to {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInBottomRight {
-    from {
-      transform: translate(100%, 100%);
-      opacity: 0;
-    }
-    to {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
   }
 </style>

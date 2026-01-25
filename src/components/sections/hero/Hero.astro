@@ -4,7 +4,7 @@ import Corners from "@components/sections/hero/Corners.astro";
 ---
 
 <section id="hero" class="hero">
-  <video autoplay muted loop playsinline aria-hidden="true" tabindex="-1" poster="/hero_img.webp">
+  <video id="hero-video" muted autoplay loop playsinline aria-hidden="true" tabindex="-1" poster="/hero_img.webp">
     <source src="/video.mp4" />
   </video>
   <article>
@@ -24,6 +24,7 @@ import Corners from "@components/sections/hero/Corners.astro";
     width: 100%;
     min-height: 100dvh;
     overflow: clip;
+    /* background-color: rebeccapurple; */
   }
 
   .hero > video {
@@ -58,7 +59,6 @@ import Corners from "@components/sections/hero/Corners.astro";
     font-size: calc(7.5vw + 1rem);
     /* font-size: var(--text-hero-large); */
     text-align: center;
-    animation: slideInUp var(--slide-in-delay) ease-in-out;
   }
 
   .hero > article > .cheese__title {
@@ -68,29 +68,7 @@ import Corners from "@components/sections/hero/Corners.astro";
     color: var(--primary-400);
     /* font-size: var(--text-hero-small); */
     font-size: calc(5.5vw + 1rem);
-
-    animation: slideInRight var(--slide-in-delay) ease-in-out;
-  }
-
-  @keyframes slideInRight {
-    from {
-      transform: translateX(-700px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInUp {
-    from {
-      transform: translateY(700px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
   }
 </style>
+
+<script src="../../../scripts/lib/hero.ts"></script>

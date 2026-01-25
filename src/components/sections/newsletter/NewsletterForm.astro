@@ -8,7 +8,7 @@ import Button from "@components/ui/Button.astro";
   <h2>Suscríbete</h2>
   <div>
     <form class="newsletter__form">
-      <Input id="email" label="Email" type="email" name="email" placeholder="Escribe tu email" />
+      <Input type="email" name="email" placeholder="Escribe tu email" />
       <Button type="submit" title="Suscribirse a la newsletter" aria-label="Suscribirse a la newsletter">
         <ArrowIcon width={20} />
       </Button>
@@ -39,7 +39,6 @@ import Button from "@components/ui/Button.astro";
     grid-area: form;
     align-self: center;
     max-width: 450px;
-    animation: slideInLeft var(--slide-in-delay) ease-in-out;
   }
 
   .newsletter > h2 {
@@ -58,16 +57,5 @@ import Button from "@components/ui/Button.astro";
 
   .newsletter > div > p > button:hover {
     opacity: 0.85;
-  }
-
-  @keyframes slideInLeft {
-    from {
-      transform: translateX(700px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
   }
 </style>
