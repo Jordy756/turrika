@@ -9,12 +9,12 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
 ---
 
 <section id="steps-section" class="steps-section">
-  <h2 id="steps-title">Manos a la obra</h2>
+  <!-- <h2 id="steps-title">Manos a la obra</h2> -->
   <div id="steps-container" class="steps-container">
-    <div>
+    <div id="left-steps">
       {leftSteps.map((step, index) => <StepCard index={index} position="left" image={step.image} />)}
     </div>
-    <div>
+    <div id="right-steps">
       {rightSteps.map((step, index) => <StepCard index={index} position="right" image={step.image} />)}
     </div>
   </div>
@@ -50,13 +50,16 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
     height: 100dvh;
     background-color: var(--neutral-50);
     transform: translateX(100%);
+    perspective: 800px; /* ← túnel 3D */
+    perspective-origin: 50% 50%;
   }
 
   .steps-container > div {
     flex: 1;
     height: 100%;
     position: relative;
+    transform-style: preserve-3d; /* ← hereda el 3D */
   }
 </style>
 
-<script src="../../../scripts/lib/steps.ts"></script>
+<script src="./steps.ts"></script>
