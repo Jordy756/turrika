@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary Colors */
+  --primary-50: #fdead7;
+  --primary-100: #fad5b0;
+  --primary-200: #f8c088;
+  --primary-300: #f5aa60;
+  --primary-400: #f39539;
+  --primary-500: #f08011;
+  --primary-600: #c96b0d;
+  --primary-700: #a1550a;
+  --primary-800: #794008;
+  --primary-900: #512b05;
+  --primary-950: #281401;
+
+  --max-width: 1856px;
+
+  /* Animations */
+  --animation-slide-in-down: slideInDown 0.5s ease-out;
+
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-700px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-unbounded);
+  --font-mono: var(--font-poppins);
+}
+
+@layer base {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scrollbar-width: thin;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    @apply font-semibold text-balance uppercase;
+  }
+
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+
+  dialog,
+  [popover] {
+    @apply fixed z-999;
+    inset: unset;
+  }
+
+  dialog::backdrop,
+  [popover]::backdrop {
+    @apply bg-black/0 blur-[0px];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply border-(--primary-500) bg-(--primary-500) text-neutral-50 transition-[background-color,color] hover:bg-(--primary-300) hover:text-neutral-950;
+  }
+
+  .btn-secondary {
+    @apply border-neutral-50 bg-neutral-50 text-neutral-950 transition-opacity hover:opacity-80;
+  }
+}
+
+@utility bg-glass {
+  @apply bg-[#141414]/20 backdrop-blur-[10px];
+}

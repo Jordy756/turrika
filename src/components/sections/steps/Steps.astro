@@ -1,6 +1,6 @@
 ---
 import StepCard from "@components/sections/steps/StepCard.astro";
-import { steps } from "@data";
+import { steps } from "@data/data.json";
 
 const leftSteps = [];
 const rightSteps = [];
@@ -9,7 +9,7 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
 ---
 
 <section id="steps-section" class="steps-section">
-  <!-- <h2 id="steps-title">Manos a la obra</h2> -->
+  <h2 id="steps-title">Manos a la obra</h2>
   <div id="steps-container" class="steps-container">
     <div id="left-steps">
       {leftSteps.map((step, index) => <StepCard index={index} position="left" image={step.image} />)}
@@ -17,6 +17,15 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
     <div id="right-steps">
       {rightSteps.map((step, index) => <StepCard index={index} position="right" image={step.image} />)}
     </div>
+    <aside>
+      <p>Paso 1</p>
+      <p>Paso 2</p>
+      <p>Paso 3</p>
+      <p>Paso 4</p>
+      <p>Paso 5</p>
+      <p>Paso 6</p>
+      <p>Paso 7</p>
+    </aside>
   </div>
 </section>
 
@@ -26,8 +35,8 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
     display: flex;
     align-items: center;
     gap: 2rem;
-    min-height: 100vh;
-    overflow: clip;
+    min-height: 100dvh;
+    background-color: red;
   }
 
   .steps-section > h2 {
@@ -42,15 +51,16 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
   }
 
   .steps-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4rem;
     width: 100%;
-    height: 100dvh;
+    height: 75dvh;
     background-color: var(--neutral-50);
     transform: translateX(100%);
-    perspective: 800px; /* ← túnel 3D */
+    perspective: 800px;
     perspective-origin: 50% 50%;
   }
 
@@ -59,6 +69,14 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
     height: 100%;
     position: relative;
     transform-style: preserve-3d; /* ← hereda el 3D */
+  }
+
+  .steps-container > aside {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--neutral-900);
   }
 </style>
 

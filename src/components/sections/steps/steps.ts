@@ -24,7 +24,7 @@ const timeline = gsap.timeline({
 });
 
 // Slide inicial del contenedor
-timeline.to(stepsContainer, { x: "0%", duration: SLIDE_DURATION });
+timeline.to(stepsContainer, { x: "0%", height: "100dvh", duration: SLIDE_DURATION });
 
 interleavedSteps.forEach((card, i) => {
   const position = i === 0 ? ">" : `-=${OVERLAP}`;
