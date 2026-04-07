@@ -4,18 +4,19 @@ import Input from "@components/ui/Input.astro";
 import Button from "@components/ui/Button.astro";
 ---
 
-<section class="newsletter">
-  <h2>Suscríbete</h2>
-  <div>
-    <form class="newsletter__form">
+<article class="flex max-w-112.5 flex-col gap-2 self-center [grid-area:form]">
+  <h2 class="text-2xl">Suscríbete</h2>
+  <section class="flex flex-col gap-2">
+    <form class="flex">
       <Input type="email" name="email" placeholder="Escribe tu email" />
       <Button type="submit" title="Suscribirse a la newsletter" aria-label="Suscribirse a la newsletter">
         <ArrowIcon width={20} />
       </Button>
     </form>
-    <p>
+    <p class="font-mono">
       Al suscribirte, aceptas nuestra
       <button
+        class="font-semibold underline transition-opacity duration-300 ease-in-out hover:opacity-85"
         command="show-modal"
         commandfor="policy-modal"
         title="Mostrar política de privacidad"
@@ -24,38 +25,5 @@ import Button from "@components/ui/Button.astro";
         política de privacidad
       </button>.
     </p>
-  </div>
-</section>
-
-<style>
-  .newsletter,
-  .newsletter > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .newsletter {
-    grid-area: form;
-    align-self: center;
-    max-width: 450px;
-  }
-
-  .newsletter > h2 {
-    font-size: var(--text-heading-small);
-  }
-
-  .newsletter > div > form {
-    display: flex;
-  }
-
-  .newsletter > div > p > button {
-    font-weight: 600;
-    text-decoration: underline;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .newsletter > div > p > button:hover {
-    opacity: 0.85;
-  }
-</style>
+  </section>
+</article>

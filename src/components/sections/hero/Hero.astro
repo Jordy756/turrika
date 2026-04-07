@@ -1,74 +1,51 @@
 ---
-import NewsletterForm from "@components/sections/newsletter/NewsletterForm.astro";
+import NewsletterForm from "@components/ui/NewsletterForm.astro";
 import Corners from "@components/sections/hero/Corners.astro";
 ---
 
-<section id="hero" class="hero">
-  <video id="hero-video" muted autoplay loop playsinline aria-hidden="true" tabindex="-1" poster="/hero_img.webp">
+<section id="hero" class="hero relative flex min-h-screen flex-col justify-end">
+  <video
+    id="hero-video"
+    class="absolute inset-0 -z-1 h-full w-full object-cover brightness-50 filter"
+    muted
+    autoplay
+    loop
+    playsinline
+    aria-hidden="true"
+    tabindex="-1"
+    poster="/hero_img.webp"
+  >
     <source src="/video.mp4" />
   </video>
-  <article>
-    <h2 id="hero-title-cheese" class="cheese__title">Queso</h2>
-    <h2 id="hero-title-pork-rinds" class="pork__rinds-title">Chicharrones</h2>
+  <article class="grid w-full flex-1 gap-4 self-center p-16">
+    <h2 id="hero-title-cheese" class="content-center text-(--primary-400) [grid-area:cheese] writing-sideways-lr">
+      Queso
+    </h2>
+    <h2 id="hero-title-pork-rinds" class="content-center text-center leading-none [grid-area:pork-rinds]">
+      Chicharrones
+    </h2>
     <NewsletterForm />
   </article>
   <Corners />
 </section>
 
 <style>
-  .hero {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    width: 100%;
-    min-height: 100dvh;
-    overflow: clip;
-    /* background-color: rebeccapurple; */
-  }
-
-  .hero > video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.5);
-  }
-
-  .hero > article {
-    align-self: center;
-    display: grid;
+  article {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr) auto;
     grid-template-areas:
       ". cheese . . . . . ."
       ". cheese . . form form form ."
       "pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds";
-    gap: 1rem;
-    padding: 4rem;
-    z-index: 1;
   }
 
-  .hero > article > .pork__rinds-title {
-    line-height: 1;
-  }
-
-  .hero > article > .pork__rinds-title {
-    grid-area: pork-rinds;
-    font-size: calc(7.5vw + 1rem);
-    /* font-size: var(--text-hero-large); */
-    text-align: center;
-  }
-
-  .hero > article > .cheese__title {
-    align-content: center;
-    grid-area: cheese;
-    writing-mode: sideways-lr;
-    color: var(--primary-400);
-    /* font-size: var(--text-hero-small); */
+  article > h2:first-of-type {
     font-size: calc(5.5vw + 1rem);
+  }
+
+  article > h2:last-of-type {
+    font-size: calc(7.5vw + 1rem);
   }
 </style>
 
-<script src="./hero.ts"></script>
+<!-- <script src="./hero.ts"></script> -->

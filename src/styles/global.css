@@ -62,13 +62,13 @@
 
   dialog,
   [popover] {
-    @apply fixed z-999;
+    @apply fixed z-999 transition-discrete duration-500 ease-in-out;
     inset: unset;
   }
 
   dialog::backdrop,
   [popover]::backdrop {
-    @apply bg-black/0 blur-[0px];
+    @apply bg-black/0 backdrop-blur-[0px] duration-500 ease-in-out;
   }
 }
 
@@ -83,5 +83,9 @@
 }
 
 @utility bg-glass {
-  @apply bg-[#141414]/20 backdrop-blur-[10px];
+  @apply bg-black/75 backdrop-blur-[25px];
+}
+
+@utility writing-sideways-lr {
+  writing-mode: sideways-lr;
 }

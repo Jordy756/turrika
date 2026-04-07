@@ -3,25 +3,9 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"input"> {}
 
-const { ...props } = Astro.props;
+const { class: className, ...props } = Astro.props;
 ---
 
-<label class="input">
-  <input {...props} />
+<label class="flex flex-1 bg-neutral-50 font-mono text-neutral-900">
+  <input {...props} class:list={["flex-1 border-none p-3 outline-none", className]} />
 </label>
-
-<style>
-  .input {
-    flex: 1;
-    display: flex;
-    background-color: var(--neutral-50);
-    color: var(--neutral-900);
-  }
-
-  .input > input {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    outline: none;
-  }
-</style>
