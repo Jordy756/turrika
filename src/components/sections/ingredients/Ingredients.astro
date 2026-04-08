@@ -3,13 +3,23 @@ import IngredientCard from "@components/sections/ingredients/IngredientCard.astr
 import { ingredients } from "@data/data.json";
 ---
 
-<section id="ingredients" class="ingredients">
-  <article>
-    <span>Ingredientes</span>
-    <h2>Ingredientes</h2>
-    <p>La simplicidad de tres elementos que crean una experiencia sensorial única.</p>
+<section id="ingredients" class="relative grid grid-cols-1 md:grid-cols-2">
+  <article
+    class="sticky inset-0 flex min-h-screen flex-col justify-end gap-4 self-start p-8 before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-8 before:bg-(--primary-950) after:absolute after:top-0 after:-right-full after:z-1 after:h-full after:w-8 after:bg-(--primary-950)"
+  >
+    <span class="absolute top-4 left-full -translate-x-1/2 leading-none font-medium text-(--primary-50) uppercase">
+      Ingredientes
+    </span>
+    <h2
+      class="relative text-4xl text-(--primary-200) before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-[5%] before:bg-(--primary-200)"
+    >
+      Ingredientes
+    </h2>
+    <p class="ml-8 max-w-[40ch] font-mono">
+      La simplicidad de tres elementos que crean una experiencia sensorial única.
+    </p>
   </article>
-  <div>
+  <div class="ml-auto flex w-[75%] flex-col bg-glass">
     {
       ingredients.map((ingredient, index) => (
         <IngredientCard
@@ -25,84 +35,7 @@ import { ingredients } from "@data/data.json";
 </section>
 
 <style>
-  .ingredients {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ingredients > article::before,
-  .ingredients > article::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 32px;
-    height: 100%;
-    background-color: var(--primary-950);
-    z-index: 1;
-  }
-
-  .ingredients > article::before {
-    left: 0;
-  }
-
-  .ingredients > article {
-    position: sticky;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 1rem;
-    padding: 2rem;
-    height: 100dvh;
-    align-self: start;
-  }
-
-  .ingredients > article::after {
-    right: -100%;
-  }
-
-  .ingredients > article > span {
-    position: absolute;
-    top: 1rem;
-    left: 100%;
-    transform: translateX(-50%);
-    color: var(--primary-50);
+  section > article > span {
     font-size: calc(12.5vw + 1rem);
-    font-family: var(--font-display);
-    font-weight: 500;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-
-  .ingredients > article > h2::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 5%;
-    height: 2px;
-    background-color: var(--primary-200);
-  }
-
-  .ingredients > article > h2 {
-    position: relative;
-    font-size: var(--text-display-small);
-    color: var(--primary-200);
-  }
-
-  .ingredients > article > p {
-    margin-left: 32px;
-    max-width: 40ch;
-  }
-
-  .ingredients > div {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin-left: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(15px);
   }
 </style>

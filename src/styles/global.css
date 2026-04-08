@@ -17,7 +17,8 @@
   --max-width: 1856px;
 
   /* Animations */
-  --animation-slide-in-down: slideInDown 0.5s ease-out;
+  --animate-slide-in-down: slideInDown 0.5s ease-out;
+  --animate-move-up-and-down: moveUpAndDown 2s ease-in-out infinite alternate;
 
   @keyframes slideInDown {
     from {
@@ -27,6 +28,15 @@
     to {
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes moveUpAndDown {
+    from {
+      transform: translateY(7.5px);
+    }
+    to {
+      transform: translateY(-7.5px);
     }
   }
 }

@@ -3,6 +3,7 @@ import Header from "@components/layout/Header.astro";
 import Hero from "@components/sections/hero/Hero.astro";
 import Layout from "@layouts/Layout.astro";
 import Policies from "@components/sections/policies/Policies.astro";
+import Ingredients from "@components/sections/ingredients/Ingredients.astro";
 
 const title = "Turrika - Home";
 const description = "Turrika - La tienda en línea para tus antojos de turrones y dulces tradicionales.";
@@ -10,7 +11,6 @@ const description = "Turrika - La tienda en línea para tus antojos de turrones 
 
 <Layout title={title} description={description}>
   <Header />
-
   <main class="relative overflow-clip">
     <Hero />
     <!-- <History id="history-01">
@@ -22,7 +22,7 @@ const description = "Turrika - La tienda en línea para tus antojos de turrones 
       <p class="start">en manos</p>
       <p class="end">de <span>Turrialba</span></p> -->
     <!--  -->
-    <!-- <Ingredients /> -->
+    <Ingredients />
     <!-- <Steps /> -->
     <!-- <History id="history-02">
       <p>Pasó de abuela a nieta entre risas y café una joya local</p> -->
