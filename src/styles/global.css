@@ -55,26 +55,27 @@
     @apply font-semibold text-balance uppercase;
   }
 
-  button,
-  a {
+  :is(button, a) {
     @apply cursor-pointer;
   }
 
-  dialog,
-  [popover] {
+  :is(dialog, [popover]) {
     @apply fixed z-999 transition-discrete duration-500 ease-in-out;
     inset: unset;
   }
 
-  dialog::backdrop,
-  [popover]::backdrop {
-    @apply bg-black/0 backdrop-blur-[0px] duration-500 ease-in-out;
+  :is(dialog, [popover])::backdrop {
+    @apply bg-black/0 backdrop-blur-[0px] transition-[background-color,backdrop-blur] duration-500 ease-in-out;
+  }
+
+  :is(dialog[open], [popover]:popover-open)::backdrop {
+    @apply bg-black/10 backdrop-blur-xs starting:bg-black/0 starting:backdrop-blur-[0px];
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply border-(--primary-500) bg-(--primary-500) text-neutral-50 transition-[background-color,color] hover:bg-(--primary-300) hover:text-neutral-950;
+    @apply border-(--primary-500) bg-(--primary-500) text-neutral-50 transition-[background-color,color,border-color] hover:border-(--primary-300) hover:bg-(--primary-300) hover:text-neutral-950;
   }
 
   .btn-secondary {

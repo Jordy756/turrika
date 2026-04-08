@@ -9,80 +9,18 @@ interface Props {
 const { id, title } = Astro.props;
 ---
 
-<dialog id={id} closedby="any">
-  <header>
-    <h2>{title}</h2>
+<dialog
+  id={id}
+  class="bottom-0 left-1/2 min-h-[70vh] -translate-x-1/2 translate-y-full flex-col gap-4 rounded-tl-3xl rounded-tr-3xl bg-glass p-8 text-neutral-50 transition-[translate,display,overlay] open:flex open:translate-y-0 starting:open:translate-y-full"
+  closedby="any"
+>
+  <header class="flex items-center justify-between gap-4">
+    <h2 class="text-2xl">{title}</h2>
     <button command="close" commandfor={id} title={`Cerrar ${title}`} aria-label={`Cerrar ${title}`}>
       <CloseIcon width={24} />
     </button>
   </header>
-  <section>
+  <section class="flex flex-col gap-4 font-mono">
     <slot />
   </section>
 </dialog>
-
-<style>
-  dialog {
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 2rem;
-    width: min(calc(var(--max-width) / 2), calc(100% - 2rem));
-    min-height: 70dvh;
-    color: var(--neutral-50);
-    background-color: var(--dialog-background-color);
-    backdrop-filter: var(--dialog-blur);
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    transition:
-      transform 0.5s ease-in-out,
-      overlay 0.5s ease-in allow-discrete,
-      display 0.5s ease-in allow-discrete;
-  }
-
-  dialog[open] {
-    transform: translate(-50%, 0);
-  }
-
-  dialog::backdrop {
-    transition:
-      background-color 0.3s ease-in-out,
-      backdrop-filter 0.3s ease-in-out;
-  }
-
-  dialog[open]::backdrop {
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
-  }
-
-  dialog > header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  dialog > header > button {
-    display: flex;
-  }
-
-  dialog > section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  @starting-style {
-    dialog[open] {
-      transform: translate(-50%, 100%);
-    }
-
-    dialog[open]::backdrop {
-      background-color: rgba(0, 0, 0, 0);
-      backdrop-filter: blur(0px);
-    }
-  }
-</style>
