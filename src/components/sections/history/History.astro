@@ -1,14 +1,13 @@
 ---
 interface Props {
-  id: string;
   text: string;
 }
 
-const { id, text } = Astro.props;
+const { text } = Astro.props;
 ---
 
-<section id={id} class="flex h-screen items-center p-8">
-  <p class="font-semibold uppercase whitespace-nowrap">{text}</p>
+<section class="history-section relative flex h-screen items-center overflow-hidden p-8">
+  <p class="history-text font-semibold whitespace-nowrap uppercase will-change-transform">{text}</p>
 </section>
 
 <style>
@@ -17,4 +16,4 @@ const { id, text } = Astro.props;
   }
 </style>
 
-<!-- <script src="./history.ts"></script> -->
+<script src="./history.ts"></script>

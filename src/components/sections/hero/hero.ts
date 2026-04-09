@@ -3,6 +3,8 @@ import { gsap } from "@scripts/utils/gsap";
 const SCROLL_END = "+=50%";
 const MOTION_EASE = "power4.out";
 const CORNER_INTRO_DURATION = 1;
+const HERO_INTRO_DURATION = 1;
+const HEADER_INTRO_OFFSET_Y = -120;
 
 const CORNER_VECTORS = {
   "top-left": { x: "-100vw", y: "-100vh" },
@@ -25,6 +27,8 @@ type HeroElements = {
   heroTitlePorkRinds: HTMLHeadingElement;
   formSection: HTMLElement;
 };
+
+const getHeaderElement = (): HTMLElement | null => document.getElementById("header");
 
 const getHeroElements = (): HeroElements | null => {
   const hero = document.getElementById("hero");
@@ -59,20 +63,44 @@ const getCornerTargets = (hero: HTMLElement): CornerTarget[] => {
   return corners;
 };
 
-const createCornersIntroTimeline = (corners: CornerTarget[]) => {
-  const cornersIntro = gsap.timeline({
+const addCornerIntroTweens = (timeline: gsap.core.Timeline, corners: CornerTarget[]): void => {
+  corners.forEach(({ element, vector }) => {
+    timeline.fromTo(
+      element,
+      { x: vector.x, y: vector.y, autoAlpha: 0 },
+      { x: 0, y: 0, autoAlpha: 1, duration: CORNER_INTRO_DURATION },
+      0,
+    );
+  });
+};
+
+const createHeroIntroTimeline = (
+  elements: HeroElements,
+  corners: CornerTarget[],
+  header: HTMLElement | null,
+): gsap.core.Timeline => {
+  const { heroTitleCheese, heroTitlePorkRinds, formSection } = elements;
+
+  const introTimeline = gsap.timeline({
     defaults: {
-      duration: CORNER_INTRO_DURATION,
+      duration: HERO_INTRO_DURATION,
       ease: MOTION_EASE,
       overwrite: "auto",
     },
   });
 
-  corners.forEach(({ element, vector }) => {
-    cornersIntro.fromTo(element, { x: vector.x, y: vector.y, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1 }, 0);
-  });
+  if (header) {
+    introTimeline.fromTo(header, { y: HEADER_INTRO_OFFSET_Y, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, 0);
+  }
 
-  return cornersIntro;
+  introTimeline
+    .fromTo(heroTitleCheese, { x: "-100vw", autoAlpha: 0 }, { x: 0, autoAlpha: 1 }, 0)
+    .fromTo(heroTitlePorkRinds, { y: "100vh", autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, 0)
+    .fromTo(formSection, { x: "100vw", autoAlpha: 0 }, { x: 0, autoAlpha: 1 }, 0);
+
+  if (corners.length) addCornerIntroTweens(introTimeline, corners);
+
+  return introTimeline;
 };
 
 const addCornerExitTweens = (timeline: gsap.core.Timeline, corners: CornerTarget[]): void => {
@@ -89,7 +117,7 @@ const addCornerExitTweens = (timeline: gsap.core.Timeline, corners: CornerTarget
   });
 };
 
-const createHeroScrollTimeline = (elements: HeroElements, corners: CornerTarget[]) => {
+const createHeroScrollTimeline = (elements: HeroElements, corners: CornerTarget[]): gsap.core.Timeline => {
   const { hero, heroVideo, heroTitleCheese, heroTitlePorkRinds, formSection } = elements;
   const timeline = gsap.timeline({
     defaults: {
@@ -146,16 +174,11 @@ const initHeroAnimation = (): void => {
 
   if (!heroElements) return;
 
+  const header = getHeaderElement();
   const corners = getCornerTargets(heroElements.hero);
 
-  if (!corners.length) {
-    createHeroScrollTimeline(heroElements, corners);
-    return;
-  }
-
-  const cornersIntro = createCornersIntroTimeline(corners);
-
-  cornersIntro.eventCallback("onComplete", () => {
+  const heroIntro = createHeroIntroTimeline(heroElements, corners, header);
+  heroIntro.eventCallback("onComplete", () => {
     createHeroScrollTimeline(heroElements, corners);
   });
 };
