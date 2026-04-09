@@ -1,46 +1,20 @@
 ---
 interface Props {
   id: string;
+  text: string;
 }
 
-const { id } = Astro.props;
+const { id, text } = Astro.props;
 ---
 
-<section id={id} class="history-section">
-  <slot />
+<section id={id} class="flex h-screen items-center p-8">
+  <p class="font-semibold uppercase whitespace-nowrap">{text}</p>
 </section>
 
 <style>
-  .history-section {
-    display: flex;
-    align-items: center;
-    padding: 2rem;
-    width: 300vw;
-    height: 100dvh;
-    /* background: linear-gradient(
-      90deg,
-      var(--primary-50),
-      var(--primary-100),
-      var(--primary-200),
-      var(--primary-300),
-      var(--primary-400)
-    ); */
-  }
-</style>
-
-<style is:global>
-  .history-section > p {
-    font-family: var(--font-display);
+  section > p {
     font-size: calc(15vw + 1rem);
-    font-weight: 600;
-    line-height: 1.25;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .history-section > p > span {
-    color: var(--primary-300);
   }
 </style>
 
-<script src="./history.ts"></script>
+<!-- <script src="./history.ts"></script> -->

@@ -4,6 +4,8 @@ import Hero from "@components/sections/hero/Hero.astro";
 import Layout from "@layouts/Layout.astro";
 import Policies from "@components/sections/policies/Policies.astro";
 import Ingredients from "@components/sections/ingredients/Ingredients.astro";
+import History from "@components/sections/history/History.astro";
+import Steps from "@components/sections/steps/Steps.astro";
 
 const title = "Turrika - Home";
 const description = "Turrika - La tienda en línea para tus antojos de turrones y dulces tradicionales.";
@@ -13,29 +15,10 @@ const description = "Turrika - La tienda en línea para tus antojos de turrones 
   <Header />
   <main class="relative overflow-clip">
     <Hero />
-    <!-- <History id="history-01">
-      <p>Dulce y queso se unieron</p>
-    </History> -->
-    <!-- <p class="start"><span>Dulce</span> y <span>queso</span></p>
-      <p class="center">se <span>unieron</span></p>
-      <p class="end">junto al fuego</p>
-      <p class="start">en manos</p>
-      <p class="end">de <span>Turrialba</span></p> -->
-    <!--  -->
+    <History id="history-01" text="Dulce y queso se unieron" />
     <Ingredients />
-    <!-- <Steps /> -->
-    <!-- <History id="history-02">
-      <p>Pasó de abuela a nieta entre risas y café una joya local</p> -->
-
-    <!-- <p class="center">Pasó de <span>abuela</span></p>
-      <p class="start">a <span>nieta</span></p>
-      <p class="end">entre risas</p>
-      <p class="center">y café</p>
-      <p class="end">una <span>joya local</span></p> -->
-    <!-- </History> -->
-    <!-- <History id="history-02">
-      <p>Junto al fuego en manos de Turrialba</p>
-    </History> -->
+    <Steps />
+    <History id="history-02" text="Pasó de abuela a nieta entre risas y café una joya local" />
   </main>
   <Policies id="policy-modal" title="Política de Privacidad" />
 </Layout>

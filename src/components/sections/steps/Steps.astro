@@ -8,16 +8,24 @@ const rightSteps = [];
 for (const step of steps) step.position === "left" ? leftSteps.push(step) : rightSteps.push(step);
 ---
 
-<section id="steps-section" class="steps-section">
-  <h2 id="steps-title">Manos a la obra</h2>
-  <div id="steps-container" class="steps-container">
-    <div id="left-steps">
+<section id="steps-section" class="relative flex min-h-dvh items-center gap-8 bg-[red]">
+  <h2
+    id="steps-title"
+    class="absolute top-1/2 left-1/2 z-1 max-w-[6ch] -translate-x-1/2 -translate-y-1/2 scale-0 text-center text-(length:--text-hero-extra-large)"
+  >
+    Manos a la obra
+  </h2>
+  <div
+    id="steps-container"
+    class="relative flex h-[75dvh] w-full translate-x-full items-center justify-center gap-16 bg-neutral-50 perspective-midrange perspective-origin-center"
+  >
+    <div id="left-steps" class="relative h-full flex-1 transform-3d">
       {leftSteps.map((step, index) => <StepCard index={index} position="left" image={step.image} />)}
     </div>
-    <div id="right-steps">
+    <div id="right-steps" class="relative h-full flex-1 transform-3d">
       {rightSteps.map((step, index) => <StepCard index={index} position="right" image={step.image} />)}
     </div>
-    <aside>
+    <aside class="absolute bottom-4 left-1/2 -translate-x-1/2 text-neutral-900">
       <p>Paso 1</p>
       <p>Paso 2</p>
       <p>Paso 3</p>
@@ -28,56 +36,5 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
     </aside>
   </div>
 </section>
-
-<style>
-  .steps-section {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    min-height: 100dvh;
-    background-color: red;
-  }
-
-  .steps-section > h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    max-width: 6ch;
-    font-size: var(--text-hero-extra-large);
-    text-align: center;
-    z-index: 1;
-  }
-
-  .steps-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    width: 100%;
-    height: 75dvh;
-    background-color: var(--neutral-50);
-    transform: translateX(100%);
-    perspective: 800px;
-    perspective-origin: 50% 50%;
-  }
-
-  .steps-container > div {
-    flex: 1;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d; /* ← hereda el 3D */
-  }
-
-  .steps-container > aside {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--neutral-900);
-  }
-</style>
 
 <script src="./steps.ts"></script>

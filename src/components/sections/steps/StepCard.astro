@@ -13,31 +13,19 @@ interface Props {
 const { position, image } = Astro.props;
 ---
 
-<article class={`step-card step-card-${position}`}>
-  <Image src={image.url} alt={image.alt} width={500} height={350} loading="lazy" decoding="async" />
+<article
+  class:list={[
+    "step-card absolute top-1/2 h-125 w-175 -translate-y-1/2 -translate-z-500 opacity-0 transform-3d",
+    position === "left" ? "right-0" : "left-0",
+  ]}
+>
+  <Image
+    src={image.url}
+    alt={image.alt}
+    width={500}
+    height={350}
+    loading="lazy"
+    decoding="async"
+    class="size-full object-cover"
+  />
 </article>
-
-<style>
-  .step-card {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateZ(-2000px); /* inicia lejos */
-    width: 700px;
-    height: 500px;
-    transform-style: preserve-3d;
-    opacity: 0;
-  }
-
-  .step-card-left {
-    right: 0;
-  }
-  .step-card-right {
-    left: 0;
-  }
-
-  .step-card > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-</style>

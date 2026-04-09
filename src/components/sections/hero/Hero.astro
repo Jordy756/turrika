@@ -17,7 +17,7 @@ import Corners from "@components/sections/hero/Corners.astro";
   >
     <source src="/video.mp4" />
   </video>
-  <article class="grid w-full flex-1 gap-4 self-center p-16">
+  <article class="grid w-full flex-1 grid-cols-8 grid-rows-[repeat(2,1fr)_auto] gap-4 self-center p-16">
     <h2 id="hero-title-cheese" class="content-center text-(--primary-400) [grid-area:cheese] writing-sideways-lr">
       Queso
     </h2>
@@ -30,22 +30,20 @@ import Corners from "@components/sections/hero/Corners.astro";
 </section>
 
 <style>
-  article {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(2, 1fr) auto;
+  section > article {
     grid-template-areas:
       ". cheese . . . . . ."
       ". cheese . . form form form ."
       "pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds";
   }
 
-  article > h2:first-of-type {
+  section > article > h2:first-of-type {
     font-size: calc(5.5vw + 1rem);
   }
 
-  article > h2:last-of-type {
+  section > article > h2:last-of-type {
     font-size: calc(7.5vw + 1rem);
   }
 </style>
 
-<!-- <script src="./hero.ts"></script> -->
+<script src="./hero.ts"></script>
