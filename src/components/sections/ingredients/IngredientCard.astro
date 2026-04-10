@@ -1,18 +1,14 @@
 ---
+import type { Ingredient } from "@scripts/entities/Ingredient";
 import { Image } from "astro:assets";
 
 interface Props {
   index: string;
-  image: {
-    url: string;
-    alt: string;
-  };
-  name: string;
-  description: string;
-  quantity: string;
+  ingredient: Ingredient;
 }
 
-const { index, image, name, description, quantity } = Astro.props;
+const { index, ingredient } = Astro.props;
+const { image, name, description, quantity } = ingredient;
 const number = index.padStart(2, "0");
 ---
 
@@ -28,7 +24,7 @@ const number = index.padStart(2, "0");
       </header>
       <section class="flex flex-col gap-8">
         <p class="font-mono">{description}</p>
-        <figure class="animate-move-up-and-down flex aspect-square w-full max-w-150">
+        <figure class="flex aspect-square w-full max-w-150 animate-move-up-and-down">
           <Image
             src={image.url}
             alt={image.alt}

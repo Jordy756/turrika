@@ -1,13 +1,22 @@
 ---
 interface Props {
-  text: string;
+  phrases: string[];
 }
 
-const { text } = Astro.props;
+const { phrases } = Astro.props;
 ---
 
-<section class="history-section relative flex h-screen items-center overflow-hidden p-8">
-  <p class="history-text font-semibold whitespace-nowrap uppercase will-change-transform">{text}</p>
+<section class="history-section relative flex h-screen flex-col justify-center gap-12 overflow-hidden p-8">
+  {
+    phrases.map((phrase, index) => (
+      <p
+        class="history-text leading-none font-semibold whitespace-nowrap uppercase will-change-transform"
+        data-history-direction={index % 2 === 0 ? "left" : "right"}
+      >
+        {phrase}
+      </p>
+    ))
+  }
 </section>
 
 <style>

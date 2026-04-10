@@ -20,17 +20,7 @@ import { ingredients } from "@data/data.json";
     </p>
   </article>
   <div class="ml-auto flex w-[75%] flex-col bg-glass">
-    {
-      ingredients.map((ingredient, index) => (
-        <IngredientCard
-          index={index + 1 + ""}
-          image={ingredient.image}
-          name={ingredient.name}
-          description={ingredient.description}
-          quantity={ingredient.quantity}
-        />
-      ))
-    }
+    {ingredients.map((ingredient, index) => <IngredientCard index={index + 1 + ""} ingredient={ingredient} />)}
   </div>
 </section>
 
