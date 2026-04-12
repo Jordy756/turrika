@@ -1,28 +1,26 @@
 ---
-
+const corners = [
+  {
+    position: "top-8 left-8",
+    border: "border-t border-l",
+  },
+  {
+    position: "top-8 right-8",
+    border: "border-t border-r",
+  },
+  {
+    position: "bottom-8 left-8",
+    border: "border-b border-l",
+  },
+  {
+    position: "bottom-8 right-8",
+    border: "border-r border-b",
+  },
+];
 ---
 
-<div
-  data-corner="top-left"
-  aria-hidden="true"
-  class="hero-corner absolute top-8 left-8 aspect-square w-25 border border-transparent border-t-(--neutral-50) border-l-(--neutral-50)"
->
-</div>
-<div
-  data-corner="top-right"
-  aria-hidden="true"
-  class="hero-corner absolute top-8 right-8 aspect-square w-25 border border-transparent border-t-(--neutral-50) border-r-(--neutral-50)"
->
-</div>
-<div
-  data-corner="bottom-left"
-  aria-hidden="true"
-  class="hero-corner absolute bottom-8 left-8 aspect-square w-25 border border-transparent border-b-(--neutral-50) border-l-(--neutral-50)"
->
-</div>
-<div
-  data-corner="bottom-right"
-  aria-hidden="true"
-  class="hero-corner absolute right-8 bottom-8 aspect-square w-25 border border-transparent border-r-(--neutral-50) border-b-(--neutral-50)"
->
-</div>
+{
+  corners.map(({ position, border }) => (
+    <div aria-hidden="true" class:list={["hero-corner absolute size-25 border-neutral-50", position, border]} />
+  ))
+}
