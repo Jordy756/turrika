@@ -6,12 +6,14 @@ import Policies from "@components/sections/policies/Policies.astro";
 import Ingredients from "@components/sections/ingredients/Ingredients.astro";
 import History from "@components/sections/history/History.astro";
 import Steps from "@components/sections/steps/Steps.astro";
+import Curtain from "@components/layout/Curtain.astro";
 
 const title = "Turrika - Home";
 const description = "Turrika - La tienda en línea para tus antojos de turrones y dulces tradicionales.";
 ---
 
 <Layout title={title} description={description}>
+  <Curtain />
   <Header />
   <main class="relative min-h-[1000vh] overflow-clip">
     <Hero />

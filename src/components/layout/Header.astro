@@ -1,6 +1,8 @@
 ---
 import CloseIcon from "@components/icons/Close.astro";
+import { basics } from "@data/data.json";
 
+const { name } = basics;
 const navigationLinks = [
   { name: "Home", href: "/#" },
   { name: "Ingredientes", href: "/#ingredients" },
@@ -20,7 +22,7 @@ const navigationLinks = [
       <span class="h-1 w-full bg-neutral-50"></span>
     </button>
     <h1 class="text-5xl">
-      <a href="/#">Turríka</a>
+      <a href="/#">{name}</a>
     </h1>
   </nav>
   <div
@@ -40,7 +42,7 @@ const navigationLinks = [
           <CloseIcon class="h-6 w-6" />
         </button>
         <h2 class="text-5xl text-(--primary-300)">
-          <a href="/#">Turríka</a>
+          <a href="/#">{name}</a>
         </h2>
       </div>
       <ul class="flex flex-col gap-8">
