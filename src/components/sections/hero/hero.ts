@@ -1,4 +1,4 @@
-import { gsap } from "@scripts/utils/gsap";
+import { gsap } from "@scripts/config/gsap";
 
 const SCROLL_END = "+=50%";
 const MOTION_EASE = "power4.out";

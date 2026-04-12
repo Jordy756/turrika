@@ -7,7 +7,9 @@ import { ingredients } from "@data/data.json";
   <article
     class="sticky inset-0 flex min-h-screen flex-col justify-end gap-4 self-start p-8 before:absolute before:top-0 before:left-0 before:z-1 before:h-full before:w-8 before:bg-(--primary-950) after:absolute after:top-0 after:-right-full after:z-1 after:h-full after:w-8 after:bg-(--primary-950)"
   >
-    <span class="absolute top-4 left-full -translate-x-1/2 leading-none font-medium text-(--primary-50) uppercase">
+    <span
+      class="absolute top-4 left-full -translate-x-1/2 text-[calc(12.5vw+1rem)] leading-none font-medium text-(--primary-50) uppercase"
+    >
       Ingredientes
     </span>
     <h2
@@ -19,13 +21,11 @@ import { ingredients } from "@data/data.json";
       La simplicidad de tres elementos que crean una experiencia sensorial única.
     </p>
   </article>
-  <div class="ml-auto flex w-[75%] flex-col bg-glass">
-    {ingredients.map((ingredient, index) => <IngredientCard index={index + 1 + ""} ingredient={ingredient} />)}
+  <div class="relative ml-auto h-screen w-[75%] overflow-hidden bg-glass">
+    <div id="ingredients-track" class="flex flex-col will-change-transform">
+      {ingredients.map((ingredient, index) => <IngredientCard index={index + 1 + ""} ingredient={ingredient} />)}
+    </div>
   </div>
 </section>
 
-<style>
-  section > article > span {
-    font-size: calc(12.5vw + 1rem);
-  }
-</style>
+<script src="./ingredients.ts"></script>

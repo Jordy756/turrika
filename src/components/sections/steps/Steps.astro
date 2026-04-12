@@ -2,10 +2,15 @@
 import StepCard from "@components/sections/steps/StepCard.astro";
 import { steps } from "@data/data.json";
 
-const leftSteps = [];
-const rightSteps = [];
+type StepItem = (typeof steps)[number] & { order: number };
 
-for (const step of steps) step.position === "left" ? leftSteps.push(step) : rightSteps.push(step);
+const leftSteps: StepItem[] = [];
+const rightSteps: StepItem[] = [];
+
+steps.forEach((step, index) => {
+  const stepWithOrder = { ...step, order: index + 1 };
+  step.position === "left" ? leftSteps.push(stepWithOrder) : rightSteps.push(stepWithOrder);
+});
 ---
 
 <section id="steps-section" class="relative flex min-h-dvh items-center gap-8 bg-[red]">
@@ -13,26 +18,37 @@ for (const step of steps) step.position === "left" ? leftSteps.push(step) : righ
     id="steps-title"
     class="absolute top-1/2 left-1/2 z-1 max-w-[6ch] -translate-x-1/2 -translate-y-1/2 scale-0 text-center text-(length:--text-hero-extra-large)"
   >
-    Manos a la obra
+    <span class="steps-title-word">Manos a </span>
+    <span class="steps-title-la inline-flex">
+      <span class="steps-title-l">l</span><span>a</span>
+    </span>
+    <span class="steps-title-word"> obra</span>
   </h2>
   <div
     id="steps-container"
-    class="relative flex h-[75dvh] w-full translate-x-full items-center justify-center gap-16 bg-neutral-50 perspective-midrange perspective-origin-center"
+    class="relative flex h-[75dvh] w-full items-center justify-center gap-16 bg-neutral-50 perspective-midrange perspective-origin-center"
   >
     <div id="left-steps" class="relative h-full flex-1 transform-3d">
-      {leftSteps.map((step, index) => <StepCard index={index} position="left" image={step.image} />)}
+      {
+        leftSteps.map((step) => (
+          <StepCard order={step.order} position="left" image={step.image} description={step.description} />
+        ))
+      }
     </div>
     <div id="right-steps" class="relative h-full flex-1 transform-3d">
-      {rightSteps.map((step, index) => <StepCard index={index} position="right" image={step.image} />)}
+      {
+        rightSteps.map((step) => (
+          <StepCard order={step.order} position="right" image={step.image} description={step.description} />
+        ))
+      }
     </div>
-    <aside class="absolute bottom-4 left-1/2 -translate-x-1/2 text-neutral-900">
-      <p>Paso 1</p>
-      <p>Paso 2</p>
-      <p>Paso 3</p>
-      <p>Paso 4</p>
-      <p>Paso 5</p>
-      <p>Paso 6</p>
-      <p>Paso 7</p>
+    <aside
+      id="steps-aside"
+      class="absolute bottom-8 left-1/2 z-2 w-full max-w-4xl -translate-x-1/2 px-8 text-center text-neutral-900"
+      aria-live="polite"
+    >
+      <p id="step-label" class="text-xs tracking-[0.35em] uppercase">Paso 1</p>
+      <p id="step-description" class="mx-auto mt-3 max-w-2xl text-xl text-balance">{steps[0]?.description}</p>
     </aside>
   </div>
 </section>

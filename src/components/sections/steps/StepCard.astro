@@ -2,26 +2,29 @@
 import { Image } from "astro:assets";
 
 interface Props {
-  index: number;
+  order: number;
   position: "left" | "right";
+  description: string;
   image: {
     url: string;
     alt: string;
   };
 }
 
-const { position, image } = Astro.props;
+const { position, image, order, description } = Astro.props;
 ---
 
 <article
+  data-step-order={order}
+  data-step-description={description}
   class:list={[
-    "step-card absolute top-1/2 h-125 w-175 -translate-y-1/2 -translate-z-500 opacity-0 transform-3d",
+    "step-card absolute top-1/2 h-125 w-175 -translate-y-1/2 opacity-0 transform-3d",
     position === "left" ? "right-0" : "left-0",
   ]}
 >
   <Image
     src={image.url}
-    alt={image.alt}
+    alt={image.alt || `Paso ${order}: ${description}`}
     width={500}
     height={350}
     loading="lazy"
