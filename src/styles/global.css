@@ -94,7 +94,7 @@
 }
 
 @utility bg-glass {
-  @apply bg-black/75 backdrop-blur-[25px];
+  @apply bg-black/75 backdrop-blur-xl;
 }
 
 @utility writing-sideways-lr {

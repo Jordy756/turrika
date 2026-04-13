@@ -72,6 +72,8 @@ const createHeroScrollTimeline = (elements: HeroElements): gsap.core.Timeline =>
         scrub: 1,
         pin: true,
         invalidateOnRefresh: true,
+        refreshPriority: 1,
+        markers: true,
       },
     })
     .to(heroTitleCheese, { xPercent: -120, autoAlpha: 0 }, 0)
@@ -93,6 +95,7 @@ const createHeroIntroTimeline = (elements: HeroElements): gsap.core.Timeline => 
       },
       onComplete: () => {
         createHeroScrollTimeline(elements);
+        ScrollTrigger.refresh(true);
       },
     })
     .to(

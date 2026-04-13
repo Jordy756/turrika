@@ -1,4 +1,4 @@
-import { gsap, ScrollTrigger } from "@scripts/config/gsap";
+import { gsap } from "@scripts/config/gsap";
 
 const SKEW_LIMIT = 72;
 const SKEW_VELOCITY_FACTOR = -220;
@@ -28,10 +28,6 @@ const createSkewHandler = (text: HTMLElement) => {
 const getTravelDistance = (section: HTMLElement, text: HTMLElement): number => section.clientWidth + text.scrollWidth;
 
 const initHistoryAnimation = (): void => {
-  ScrollTrigger.getAll().forEach((trigger) => {
-    if (trigger.trigger?.classList.contains("history-section")) trigger.kill();
-  });
-
   const sections = gsap.utils.toArray<HTMLElement>(".history-section");
 
   sections.forEach((section) => {
@@ -44,7 +40,6 @@ const initHistoryAnimation = (): void => {
 
     gsap.set(text, {
       x: getStartX,
-      autoAlpha: 1,
       skewX: 0,
       transformOrigin: "center center",
     });
@@ -54,6 +49,7 @@ const initHistoryAnimation = (): void => {
       ease: "none",
       scrollTrigger: {
         trigger: section,
+        markers: true,
         start: "top top",
         end: () => `+=${getTravelDistance(section, text)}`,
         scrub: true,
