@@ -1,8 +1,11 @@
 import { gsap } from "@scripts/config/gsap";
 
-const SKEW_LIMIT = 72;
-const SKEW_VELOCITY_FACTOR = -220;
-const SKEW_RESET_DURATION = 0.75;
+const SKEW_LIMIT = 22;
+const SKEW_VELOCITY_FACTOR = -360;
+const SKEW_RESET_DURATION = 0.65;
+const HISTORY_START = "top top";
+const HISTORY_DISTANCE_FACTOR = 0.5;
+const HISTORY_MIN_TRAVEL_DISTANCE = 720;
 
 const createSkewHandler = (text: HTMLElement) => {
   const skewProxy = { value: 0 };
@@ -25,7 +28,11 @@ const createSkewHandler = (text: HTMLElement) => {
   };
 };
 
-const getTravelDistance = (section: HTMLElement, text: HTMLElement): number => section.clientWidth + text.scrollWidth;
+const getTravelDistance = (section: HTMLElement, text: HTMLElement): number => {
+  const baseDistance = (section.clientWidth + text.scrollWidth) * HISTORY_DISTANCE_FACTOR;
+
+  return Math.max(HISTORY_MIN_TRAVEL_DISTANCE, baseDistance);
+};
 
 const initHistoryAnimation = (): void => {
   const sections = gsap.utils.toArray<HTMLElement>(".history-section");
@@ -49,11 +56,12 @@ const initHistoryAnimation = (): void => {
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        markers: true,
-        start: "top top",
+        start: HISTORY_START,
         end: () => `+=${getTravelDistance(section, text)}`,
         scrub: true,
         pin: true,
+        pinSpacing: true,
+        invalidateOnRefresh: true,
         onUpdate: (self) => updateSkew(self.getVelocity()),
       },
     });

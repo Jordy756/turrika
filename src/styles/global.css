@@ -54,7 +54,7 @@
   *,
   *::before,
   *::after {
-    scrollbar-width: thin;
+    scrollbar-width: none;
   }
 
   html {
