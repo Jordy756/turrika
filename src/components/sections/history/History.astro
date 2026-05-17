@@ -6,7 +6,7 @@ interface Props {
 const { phrase } = Astro.props;
 ---
 
-<section class="history-section relative flex h-screen items-center bg-amber-950">
+<section class="history-section relative flex h-screen items-center">
   <p class="font-semibold whitespace-nowrap uppercase will-change-transform">
     {phrase}
   </p>
@@ -15,6 +15,10 @@ const { phrase } = Astro.props;
 <style>
   section > p {
     font-size: calc(17.5vw + 1rem);
+  }
+
+  section {
+    /* background: url(/step_img_07.png) center/cover no-repeat fixed; */
   }
 </style>
 

@@ -1,6 +1,6 @@
 ---
-import StepCard from "@components/sections/steps/StepCard.astro";
-import { steps } from "@data/data.json";
+import StepCard from '@components/sections/steps/StepCard.astro';
+import { steps } from '@data/data.json';
 
 type StepItem = (typeof steps)[number] & { order: number };
 
@@ -9,7 +9,7 @@ const rightSteps: StepItem[] = [];
 
 steps.forEach((step, index) => {
   const stepWithOrder = { ...step, order: index + 1 };
-  step.position === "left" ? leftSteps.push(stepWithOrder) : rightSteps.push(stepWithOrder);
+  step.position === 'left' ? leftSteps.push(stepWithOrder) : rightSteps.push(stepWithOrder);
 });
 ---
 

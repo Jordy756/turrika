@@ -1,11 +1,11 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"input"> {}
+interface Props extends HTMLAttributes<'input'> {}
 
 const { class: className, ...props } = Astro.props;
 ---
 
 <label class="flex flex-1 bg-neutral-50 font-mono text-neutral-900">
-  <input {...props} class:list={["flex-1 border-none p-3 outline-none", className]} />
+  <input {...props} class:list={['flex-1 border-none p-3 outline-none', className]} />
 </label>

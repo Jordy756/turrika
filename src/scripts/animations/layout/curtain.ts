@@ -1,12 +1,12 @@
-import { gsap } from "@scripts/config/gsap";
+import { gsap } from '@scripts/config/gsap';
 
-const REVEAL_DURATION = 0.5;
+const REVEAL_DURATION = 0.8;
 
 const initCourtainAnimation = (): void => {
-  const curtain = document.getElementById("hero-curtain") as HTMLElement | null;
+  const curtain = document.getElementById('hero-curtain') as HTMLElement | null;
   if (!curtain) return;
 
-  const panels = Array.from(curtain.querySelectorAll<HTMLElement>("[data-curtain-panel]"));
+  const panels = Array.from(curtain.querySelectorAll<HTMLElement>('[data-curtain-panel]'));
 
   if (!panels.length) {
     gsap.set(curtain, { autoAlpha: 0 });
@@ -16,8 +16,8 @@ const initCourtainAnimation = (): void => {
   gsap
     .timeline({
       defaults: {
-        ease: "power3.inOut",
-        overwrite: "auto",
+        ease: 'power3.inOut',
+        overwrite: 'auto',
       },
     })
     .fromTo(
@@ -26,7 +26,7 @@ const initCourtainAnimation = (): void => {
         opacity: 1,
         scaleY: 1,
         scaleX: 1.5,
-        transformOrigin: "center top",
+        transformOrigin: 'center top',
       },
       {
         opacity: 0,
@@ -35,7 +35,7 @@ const initCourtainAnimation = (): void => {
         duration: REVEAL_DURATION,
         stagger: {
           each: REVEAL_DURATION / panels.length,
-          from: "center",
+          from: 'center',
         },
       },
     )

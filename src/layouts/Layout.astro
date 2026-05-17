@@ -1,7 +1,7 @@
 ---
-import "@styles/global.css";
-import "lenis/dist/lenis.css";
-import { Font } from "astro:assets";
+import '@styles/global.css';
+import 'lenis/dist/lenis.css';
+import { Font } from 'astro:assets';
 
 interface Props {
   title: string;
@@ -40,7 +40,7 @@ const { title, description } = Astro.props;
     <script src="../scripts/config/lenis.ts"></script>
   </head>
   <body class="bg-(--primary-950) text-pretty text-neutral-50">
-    <div class="relative overflow-clip">
+    <div class="relative z-10 overflow-clip">
       <slot />
     </div>
   </body>

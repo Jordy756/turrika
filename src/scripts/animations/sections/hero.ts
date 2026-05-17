@@ -1,8 +1,8 @@
-import { gsap, ScrollTrigger } from "@scripts/config/gsap";
+import { gsap, ScrollTrigger } from '@scripts/config/gsap';
 
-const HERO_SCROLL_TRIGGER_ID = "hero-scroll";
-const INTRO_DELAY_SECONDS = 0.5;
-const INTRO_DURATION_SECONDS = 0.5;
+const HERO_SCROLL_TRIGGER_ID = 'hero-scroll';
+const INTRO_DELAY_SECONDS = 0.8;
+const INTRO_DURATION_SECONDS = 0.8;
 
 interface HeroElements {
   hero: HTMLElement;
@@ -14,14 +14,14 @@ interface HeroElements {
 }
 
 const getHeroElements = (): HeroElements | null => {
-  const hero = document.getElementById("hero") as HTMLElement | null;
+  const hero = document.getElementById('hero') as HTMLElement | null;
   if (!hero) return null;
 
-  const heroVideo = hero.querySelector<HTMLVideoElement>("#hero-video");
-  const heroTitleCheese = hero.querySelector<HTMLHeadingElement>("#hero-title-cheese");
-  const heroTitlePorkRinds = hero.querySelector<HTMLHeadingElement>("#hero-title-pork-rinds");
-  const formSection = hero.querySelector<HTMLElement>(".newsletter");
-  const corners = Array.from(hero.querySelectorAll<HTMLElement>(".hero-corner"));
+  const heroVideo = hero.querySelector<HTMLVideoElement>('#hero-video');
+  const heroTitleCheese = hero.querySelector<HTMLHeadingElement>('#hero-title-cheese');
+  const heroTitlePorkRinds = hero.querySelector<HTMLHeadingElement>('#hero-title-pork-rinds');
+  const formSection = hero.querySelector<HTMLElement>('.newsletter');
+  const corners = Array.from(hero.querySelectorAll<HTMLElement>('.hero-corner'));
 
   if (!heroVideo || !heroTitleCheese || !heroTitlePorkRinds || !formSection) return null;
 
@@ -41,17 +41,17 @@ const setHeroInitialState = (elements: HeroElements): void => {
   gsap.set([heroTitleCheese, heroTitlePorkRinds, formSection], {
     autoAlpha: 0,
     yPercent: 12,
-    clipPath: "inset(100% 50% 0% 50%)",
+    clipPath: 'inset(100% 50% 0% 50%)',
   });
 
   gsap.set(corners, {
     scale: 2.5,
-    transformOrigin: "50% 50%",
+    transformOrigin: '50% 50%',
   });
 
   gsap.set(heroVideo, {
     scale: 2.5,
-    transformOrigin: "50% 0%",
+    transformOrigin: '50% 0%',
   });
 };
 
@@ -61,14 +61,14 @@ const createHeroScrollTimeline = (elements: HeroElements): gsap.core.Timeline =>
   return gsap
     .timeline({
       defaults: {
-        ease: "power3.inOut",
-        overwrite: "auto",
+        ease: 'power3.inOut',
+        overwrite: 'auto',
       },
       scrollTrigger: {
         id: HERO_SCROLL_TRIGGER_ID,
         trigger: hero,
-        start: "top top",
-        end: "+=50%",
+        start: 'top top',
+        end: '+=50%',
         scrub: 1,
         pin: true,
         invalidateOnRefresh: true,
@@ -79,7 +79,7 @@ const createHeroScrollTimeline = (elements: HeroElements): gsap.core.Timeline =>
     .to(heroTitlePorkRinds, { yPercent: 110, autoAlpha: 0 }, 0)
     .to(formSection, { xPercent: 110, autoAlpha: 0 }, 0)
     .to(corners, { autoAlpha: 0, scale: 5 }, 0)
-    .to(heroVideo, { scale: 5, autoAlpha: 0, transformOrigin: "50% 50%" }, 0);
+    .to(heroVideo, { scale: 5, autoAlpha: 0, transformOrigin: '50% 50%' }, 0);
 };
 
 const createHeroIntroTimeline = (elements: HeroElements): gsap.core.Timeline => {
@@ -89,7 +89,7 @@ const createHeroIntroTimeline = (elements: HeroElements): gsap.core.Timeline => 
     .timeline({
       delay: INTRO_DELAY_SECONDS,
       defaults: {
-        overwrite: "auto",
+        overwrite: 'auto',
         duration: INTRO_DURATION_SECONDS,
       },
       onComplete: () => {
@@ -102,13 +102,13 @@ const createHeroIntroTimeline = (elements: HeroElements): gsap.core.Timeline => 
       {
         autoAlpha: 1,
         yPercent: 0,
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "power1.out",
+        clipPath: 'inset(0% 0% 0% 0%)',
+        ease: 'power1.out',
       },
       0,
     )
-    .to(corners, { scale: 1, ease: "power3.out" }, 0)
-    .to(heroVideo, { scale: 1, ease: "power3.out" }, 0);
+    .to(corners, { scale: 1, ease: 'power3.out' }, 0)
+    .to(heroVideo, { scale: 1, ease: 'power3.out' }, 0);
 };
 
 const initHeroAnimation = (): void => {

@@ -3,68 +3,78 @@
   "skills": {
     "accessibility": {
       "source": "addyosmani/web-quality-skills",
-      "sourceType": "github",
-      "computedHash": "6462f04969f59f771150e6410e6a11fa397f2934be0b51e8650f495feed1e28d"
+      "sourceType": "autoskills-registry",
+      "computedHash": "bffe3d08cfe92ebad63699f74ce29e35c19850ebfbf474c1463183cfe34d6a09"
     },
     "astro": {
       "source": "astrolicious/agent-skills",
-      "sourceType": "github",
-      "computedHash": "ebefe26b231d32379c14e41a46c2de7b4b0184543bedab7febdabe4fb21fba4e"
+      "sourceType": "autoskills-registry",
+      "computedHash": "2afd3a02edf4374598ce471dabb1ab5638851dbf7b82d0bb36f1019331eafb54"
     },
     "frontend-design": {
       "source": "anthropics/skills",
-      "sourceType": "github",
-      "computedHash": "063a0e6448123cd359ad0044cc46b0e490cc7964d45ef4bb9fd842bd2ffbca67"
+      "sourceType": "autoskills-registry",
+      "computedHash": "82fb11a63fb1e35ee2469516ed02d54695f783115b1540c0e783197af4240a3a"
     },
     "gsap-core": {
       "source": "greensock/gsap-skills",
-      "sourceType": "github",
-      "computedHash": "c4a01101d9e1aafbf4b49f75d74f9349790d8741981ba0237c990093863035a6"
+      "sourceType": "autoskills-registry",
+      "computedHash": "e48283d0386774f816bc3445165c4f4f440507eb42d45aa34781a8373d2ff1c4"
     },
     "gsap-frameworks": {
       "source": "greensock/gsap-skills",
-      "sourceType": "github",
-      "computedHash": "151f82c17668f8568be9ee77a7b6faadc295118fe5ee77e44c6971f59c66c857"
+      "sourceType": "autoskills-registry",
+      "computedHash": "97f2615815e642f630d472a5ff553b9a17b2c270d0b7962419a620d13a7e4b45"
     },
     "gsap-performance": {
       "source": "greensock/gsap-skills",
-      "sourceType": "github",
-      "computedHash": "863842ac2d7aee53fd4f0025c960173d7ad3e658a5715b89b2211fa280213c1f"
+      "sourceType": "autoskills-registry",
+      "computedHash": "5b07e939fd6eb24d998e13d1aad24b3d6ecde4a131a9393e45eff056917fd319"
     },
     "gsap-plugins": {
       "source": "greensock/gsap-skills",
-      "sourceType": "github",
-      "computedHash": "83f5517521ddb74264d5227a2f11e58425edd10d20e8c0f1264e10cbcc00e712"
+      "sourceType": "autoskills-registry",
+      "computedHash": "0005934f847f9a6b0f510bfd8a74f93d96002ea0f1dbafc3f6e19e6a06e9eb74"
     },
     "gsap-scrolltrigger": {
       "source": "greensock/gsap-skills",
-      "sourceType": "github",
-      "computedHash": "1cdc5647693783cb7a662d84a5de434c88a051ed56b4d33597c9b5782b5973e6"
+      "sourceType": "autoskills-registry",
+      "computedHash": "8b45aba1304ca0197a4f440a3421b059ac03b926c0829d51c14caaf46f2f47c3"
     },
     "gsap-timeline": {
       "source": "greensock/gsap-skills",
-      "sourceType": "github",
-      "computedHash": "54981c2feec5a9c0d57988aeb32315af32bdeadd261550d5e9db7a7b1f08b487"
+      "sourceType": "autoskills-registry",
+      "computedHash": "f358230f289a063766bdca35290866790065f067e31cc477733e4cb3ee06a6c2"
     },
     "gsap-utils": {
       "source": "greensock/gsap-skills",
-      "sourceType": "github",
-      "computedHash": "1ab2387f6e694718a4f1b5acf2a4ab16e1b884c3428adf5f6b26d830f00826cf"
+      "sourceType": "autoskills-registry",
+      "computedHash": "4bc9e220b816f74547d770f73a2878e86df035f42e445c1e98875dd9793fe927"
+    },
+    "nodejs-backend-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "autoskills-registry",
+      "computedHash": "710a5e6f83c46e8f6c43356df55c143a7375c4414559a581654ce51709138c55"
+    },
+    "nodejs-best-practices": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "autoskills-registry",
+      "computedHash": "7361ab02fb6b09913e3bdd9cf61c629ed6c17de9485e6a781054e5d437ccfc29"
     },
     "seo": {
       "source": "addyosmani/web-quality-skills",
-      "sourceType": "github",
-      "computedHash": "f1fed683b76913d26fbf1aa1e008e6932f7771701fc3a79925b042236aa4681a"
+      "sourceType": "autoskills-registry",
+      "computedHash": "c184da724d1c61ad077f27418ea8e7e88fd54bcdf98165e18be7e4681cbd5e20"
     },
     "tailwind-css-patterns": {
       "source": "giuseppe-trisciuoglio/developer-kit",
-      "sourceType": "github",
-      "computedHash": "6092620c3af955a46ea2b94ca8a40197ac8392e6bbdc8c7515659328b186c770"
+      "sourceType": "autoskills-registry",
+      "computedHash": "8fd534b64b3f305ade80c207e2f9ba4338d5e409e355af9f724c36764b6709c1"
     },
     "typescript-advanced-types": {
       "source": "wshobson/agents",
-      "sourceType": "github",
-      "computedHash": "3a3be8c925f96ac4e1280db28a01677e7ca5197f3792de2bbf35ab3bb324b6dd"
+      "sourceType": "autoskills-registry",
+      "computedHash": "5ca0e177c6aaaba1889255691224daafdb7d71f317cc70bede1590d3907ded42"
     }
   }
 }

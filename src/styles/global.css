@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* Primary Colors */
@@ -51,15 +51,31 @@
     interpolate-size: allow-keywords;
   }
 
-  *,
-  *::before,
-  *::after {
-    scrollbar-width: none;
+  :is(*, *::before, *::after) {
+    @apply scrollbar-thin;
   }
 
   html {
     @apply scroll-smooth;
   }
+
+  /* body {
+    position: relative;
+    isolation: isolate;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("/bg-turrika.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.55;
+  } */
 
   :is(h1, h2, h3, h4, h5, h6) {
     @apply font-semibold text-balance uppercase;

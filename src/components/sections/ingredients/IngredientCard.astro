@@ -1,6 +1,6 @@
 ---
-import type { Ingredient } from "@scripts/entities/Ingredient";
-import { Image } from "astro:assets";
+import type { Ingredient } from '@scripts/entities/Ingredient';
+import { Image } from 'astro:assets';
 
 interface Props {
   index: string;
@@ -9,7 +9,7 @@ interface Props {
 
 const { index, ingredient } = Astro.props;
 const { image, name, description, quantity } = ingredient;
-const number = index.padStart(2, "0");
+const number = index.padStart(2, '0');
 ---
 
 <article class="flex min-h-screen items-center justify-center p-16">

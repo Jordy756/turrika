@@ -1,0 +1,38 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgWash" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#281401"/>
+      <stop offset="1" stop-color="#1B0E01"/>
+    </linearGradient>
+
+    <pattern id="amberMesh" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse">
+      <path d="M0 160L160 0" stroke="#F39539" stroke-opacity="0.09" stroke-width="1.2"/>
+      <path d="M-40 40L40 -40" stroke="#F39539" stroke-opacity="0.09" stroke-width="1.2"/>
+      <path d="M120 200L200 120" stroke="#F39539" stroke-opacity="0.09" stroke-width="1.2"/>
+      <rect x="0.5" y="0.5" width="159" height="159" stroke="#F8C088" stroke-opacity="0.05"/>
+      <circle cx="0" cy="0" r="1.8" fill="#FDEAD7" fill-opacity="0.18"/>
+      <circle cx="80" cy="80" r="1.8" fill="#FDEAD7" fill-opacity="0.12"/>
+      <circle cx="160" cy="160" r="1.8" fill="#FDEAD7" fill-opacity="0.18"/>
+    </pattern>
+
+    <radialGradient id="warmGlowLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 220) rotate(40) scale(620 360)">
+      <stop stop-color="#F39539" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#F39539" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="warmGlowRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1520 880) rotate(210) scale(700 420)">
+      <stop stop-color="#F08011" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#F08011" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bgWash)"/>
+  <rect width="1920" height="1080" fill="url(#amberMesh)"/>
+  <ellipse cx="360" cy="220" rx="620" ry="360" fill="url(#warmGlowLeft)"/>
+  <ellipse cx="1520" cy="880" rx="700" ry="420" fill="url(#warmGlowRight)"/>
+
+  <path d="M-140 920C190 760 420 840 680 760C890 696 1120 580 1400 652C1640 716 1816 660 2060 500"
+    stroke="#F8C088" stroke-opacity="0.08" stroke-width="2.5"/>
+  <path d="M-120 280C120 356 300 320 500 256C780 164 940 188 1180 288C1390 376 1600 340 2000 120"
+    stroke="#F39539" stroke-opacity="0.08" stroke-width="2.5"/>
+</svg>

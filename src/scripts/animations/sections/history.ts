@@ -1,15 +1,15 @@
-import { gsap } from "@scripts/config/gsap";
+import { gsap } from '@scripts/config/gsap';
 
-const SKEW_LIMIT = 22;
+const SKEW_LIMIT = 24;
 const SKEW_VELOCITY_FACTOR = -360;
 const SKEW_RESET_DURATION = 0.65;
-const HISTORY_START = "top top";
+const HISTORY_START = 'top top';
 const HISTORY_DISTANCE_FACTOR = 0.5;
 const HISTORY_MIN_TRAVEL_DISTANCE = 720;
 
 const createSkewHandler = (text: HTMLElement) => {
   const skewProxy = { value: 0 };
-  const setSkew = gsap.quickSetter(text, "skewX", "deg");
+  const setSkew = gsap.quickSetter(text, 'skewX', 'deg');
   const clamp = gsap.utils.clamp(-SKEW_LIMIT, SKEW_LIMIT);
 
   return (velocity: number) => {
@@ -17,11 +17,11 @@ const createSkewHandler = (text: HTMLElement) => {
 
     if (Math.abs(nextSkew) <= Math.abs(skewProxy.value)) return;
 
-    skewProxy.value = nextSkew;
+    skewProxy.value = nextSkew * 1.75;
     gsap.to(skewProxy, {
       value: 0,
       duration: SKEW_RESET_DURATION,
-      ease: "power3.out",
+      ease: 'power3.out',
       overwrite: true,
       onUpdate: () => setSkew(skewProxy.value),
     });
@@ -35,10 +35,10 @@ const getTravelDistance = (section: HTMLElement, text: HTMLElement): number => {
 };
 
 const initHistoryAnimation = (): void => {
-  const sections = gsap.utils.toArray<HTMLElement>(".history-section");
+  const sections = gsap.utils.toArray<HTMLElement>('.history-section');
 
   sections.forEach((section) => {
-    const text = section.querySelector<HTMLElement>("p");
+    const text = section.querySelector<HTMLElement>('p');
     if (!text) return;
 
     const updateSkew = createSkewHandler(text);
@@ -48,12 +48,12 @@ const initHistoryAnimation = (): void => {
     gsap.set(text, {
       x: getStartX,
       skewX: 0,
-      transformOrigin: "center center",
+      transformOrigin: 'center center',
     });
 
     gsap.to(text, {
       x: getEndX,
-      ease: "none",
+      ease: 'none',
       scrollTrigger: {
         trigger: section,
         start: HISTORY_START,
