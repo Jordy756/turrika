@@ -52,7 +52,7 @@
   }
 
   :is(*, *::before, *::after) {
-    @apply scrollbar-thin;
+    @apply scrollbar-thin scrollbar-thumb-neutral-50 scrollbar-track-transparent;
   }
 
   html {

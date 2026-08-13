@@ -25,9 +25,9 @@ See `examples/vue/` for a runnable Vite + Vue 3 project demonstrating these patt
 Use **onMounted** to run GSAP after the component is in the DOM. Use **onUnmounted** to clean up.
 
 ```javascript
-import { onMounted, onUnmounted, ref } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted, onUnmounted, ref } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger); // once per app, e.g. in main.js
 
 export default {
@@ -38,8 +38,8 @@ export default {
     onMounted(() => {
       if (!container.value) return;
       ctx = gsap.context(() => {
-        gsap.to(".box", { x: 100, duration: 0.6 });
-        gsap.from(".item", { autoAlpha: 0, y: 20, stagger: 0.1 });
+        gsap.to('.box', { x: 100, duration: 0.6 });
+        gsap.from('.item', { autoAlpha: 0, y: 20, stagger: 0.1 });
       }, container.value);
     });
 
