@@ -19,12 +19,12 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
 
-    <Font cssVariable="--font-unbounded" />
-    <Font cssVariable="--font-poppins" />
+    <Font cssVariable="--font-unbounded" preload />
+    <Font cssVariable="--font-poppins" preload />
 
     <meta name="description" content={description} />
 
-    <!--  
+    <!--
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
@@ -46,7 +46,7 @@ const { title, description } = Astro.props;
   </body>
 </html>
 
-<!-- 
+<!--
   :root {
     --text-hero-giant: clamp(9.375rem, 12vw + 2rem, 18.75rem);
     --text-hero-extra-large: clamp(3.75rem, 10vw + 24px, 15.625rem);
@@ -71,7 +71,7 @@ const { title, description } = Astro.props;
     --secondary-500: #cec9c9;
   } */
 
-  /* 
+  /*
    */
 
   /*   -->

@@ -3,7 +3,6 @@ dist/
 
 # generated types
 .astro/
-.atl
 
 # dependencies
 node_modules/
@@ -23,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# VS Code setting folder
+.vscode/
+
+# Skill registry files
+.atl
