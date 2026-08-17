@@ -2,17 +2,17 @@
 
 @theme {
   /* Primary Colors */
-  --primary-50: #fdead7;
-  --primary-100: #fad5b0;
-  --primary-200: #f8c088;
-  --primary-300: #f5aa60;
-  --primary-400: #f39539;
-  --primary-500: #f08011;
-  --primary-600: #c96b0d;
-  --primary-700: #a1550a;
-  --primary-800: #794008;
-  --primary-900: #512b05;
-  --primary-950: #281401;
+  --color-primary-50: #fdead7;
+  --color-primary-100: #fad5b0;
+  --color-primary-200: #f8c088;
+  --color-primary-300: #f5aa60;
+  --color-primary-400: #f39539;
+  --color-primary-500: #f08011;
+  --color-primary-600: #c96b0d;
+  --color-primary-700: #a1550a;
+  --color-primary-800: #794008;
+  --color-primary-900: #512b05;
+  --color-primary-950: #281401;
 
   --max-width: 1856px;
 
@@ -101,7 +101,7 @@
 
 @layer components {
   .btn-primary {
-    @apply border-(--primary-500) bg-(--primary-500) text-neutral-50 transition-[background-color,color,border-color] hover:border-(--primary-300) hover:bg-(--primary-300) hover:text-neutral-950;
+    @apply border-primary-500 bg-primary-500 text-neutral-50 transition-[background-color,color,border-color] hover:border-primary-300 hover:bg-primary-300 hover:text-neutral-950;
   }
 
   .btn-secondary {
