@@ -1,5 +1,5 @@
 ---
-import CloseIcon from '@components/icons/Close.astro';
+import CloseIcon from '@components/icons/CloseIcon.astro';
 import { basics } from '@data/data.json';
 
 const { name } = basics;
@@ -46,18 +46,16 @@ const navigationLinks = [
         </h2>
       </div>
       <ul class="flex flex-col gap-8">
-        {
-          navigationLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="text-5xl font-medium uppercase transition-[color] duration-300 ease-in-out hover:text-primary-100"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))
-        }
+        {navigationLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-5xl font-medium uppercase transition-[color] duration-300 ease-in-out hover:text-primary-100"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   </div>
